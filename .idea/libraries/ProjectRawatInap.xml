@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ProjectRawatInap">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/ProjectRawatInap.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
