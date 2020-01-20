@@ -32,6 +32,7 @@ public class Main {
         String yt=null;
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        LoginScreen ls = new LoginScreen();
 
         Koneksi k = new Koneksi();
         k.setDB("localhost","3306","rawat_inap","root","");
@@ -39,7 +40,6 @@ public class Main {
         do {
             clrscr();
             System.out.println();
-            LoginScreen ls = new LoginScreen();
             ls.cetakLogin();
 
             k.query="Select * from t_user where username = '"+ls.getUname()+"' and password = '"+ls.getPass()+"';";
@@ -73,6 +73,24 @@ public class Main {
         Menu menu = new Menu();
         if(hak_akses.equals("Admin")){
             menu.cetakMenu();
+            switch (menu.getPilihan()){
+                case 1 :
+                    menu.cetakMenuDokter();
+                    switch (menu.getPilihan()){
+                        case 1:
+                            menu.tambahDokter();
+                            break;
+                    }
+                    break;
+                case 2 :
+                    menu.cetakMenuPerawat();
+                    break;
+                case 3 :
+                    menu.cetakMenuPasien();
+                    break;
+                case 4 :
+                    break;
+            }
             
         }
     }
