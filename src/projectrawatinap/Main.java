@@ -80,6 +80,9 @@ public class Main {
                         case 1:
                             menu.tambahDokter();
                             break;
+                        case 2:
+                            menu.ubahDokter();
+                            break;
                     }
                     break;
                 case 2 :
