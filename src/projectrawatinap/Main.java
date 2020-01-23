@@ -81,7 +81,11 @@ public class Main {
                             menu.tambahDokter();
                             break;
                         case 2:
+                            menu.hapusDokter();
+                        case 3:
                             menu.ubahDokter();
+                            break;
+                        case 4:
                             break;
                     }
                     break;
