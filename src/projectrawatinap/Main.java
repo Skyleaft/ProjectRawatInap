@@ -42,12 +42,12 @@ public class Main {
             System.out.println();
             ls.cetakLogin();
 
-            k.query="Select * from t_user where username = '"+ls.getUname()+"' and password = '"+ls.getPass()+"';";
+            k.query="Select * from user where username = '"+ls.getUname()+"' and password = '"+ls.getPass()+"';";
             k.ambil();
             if(k.rs.next()){
                 clrscr();
 
-                if(k.rs.getString("lvl_user").equals("admin")){
+                if(k.rs.getString("hak_akses").equals("admin")){
                     hak_akses="Admin";
                 }else{
                     hak_akses="Petugas";
@@ -86,6 +86,7 @@ public class Main {
                             menu.ubahDokter();
                             break;
                         case 4:
+                            menu.cariDokter();
                             break;
                     }
                     break;
