@@ -95,6 +95,7 @@ public class Menu {
     }
 
     public void tambahDokter() throws IOException {
+        k.setDB("localhost","3306","rawat_inap","root","");
         String id,nama,alamat,spesialisasi;
         System.out.println("┌─────────────────────────────────┐");
         System.out.println("│      Tambah Data Dokter         │");
@@ -115,6 +116,7 @@ public class Menu {
     }
 
     public void ubahDokter() throws IOException, SQLException {
+        k.setDB("localhost","3306","rawat_inap","root","");
         String id,nama,alamat,spesialisasi;
         System.out.println("┌─────────────────────────────────┐");
         System.out.println("│        Ubah Data Dokter         │");
@@ -148,6 +150,7 @@ public class Menu {
     }
 
     public void hapusDokter() throws IOException, SQLException {
+        k.setDB("localhost","3306","rawat_inap","root","");
         String id,yt;
         System.out.println("┌─────────────────────────────────┐");
         System.out.println("│        Hapus Data Dokter        │");
