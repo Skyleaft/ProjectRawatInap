@@ -30,13 +30,28 @@ public class Main {
     public static void main(String[] args) throws IOException, SQLException {
         String hak_akses = null;
         String yt=null;
+        String ytserver=null;
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         LoginScreen ls = new LoginScreen();
-
         Koneksi k = new Koneksi();
-        k.setDB("localhost","3306","rawat_inap","root","");
-        k.konek();
+        System.out.println("default ip:localhost   port:3306   user:root  pass:-");
+        System.out.print("Setting server mysql?(y/t) : ");ytserver = reader.readLine().toUpperCase();
+        if(ytserver.equals("Y")){
+            String ip,port,user,pass;
+            System.out.print("Masukan IP Server : ");ip=reader.readLine();
+            System.out.print("Masukan port Server : ");port=reader.readLine();
+            System.out.print("Masukan username Server : ");user=reader.readLine();
+            System.out.print("Masukan password Server : ");pass=reader.readLine();
+            k.setDB(ip,port,"rawat_inap",user,pass);
+            k.konek();
+        }
+        else if(ytserver.equals("T")){
+            k.setDB("localhost","3306","rawat_inap","root","");
+            k.konek();
+        }
+
+
         do {
             clrscr();
             System.out.println();
@@ -72,6 +87,7 @@ public class Main {
 
         Menu menu = new Menu();
         if(hak_akses.equals("Admin")){
+
             menu.cetakMenu();
             switch (menu.getPilihan()){
                 case 1 :
@@ -82,6 +98,7 @@ public class Main {
                             break;
                         case 2:
                             menu.hapusDokter();
+                            break;
                         case 3:
                             menu.ubahDokter();
                             break;
