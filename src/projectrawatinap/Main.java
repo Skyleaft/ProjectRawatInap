@@ -31,14 +31,13 @@ public class Main {
         String hak_akses = null;
         String yt=null;
         String ytserver=null;
-
+        String ip="localhost",port="3306",user="root",pass=null;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         LoginScreen ls = new LoginScreen();
         Koneksi k = new Koneksi();
         System.out.println("default ip:localhost   port:3306   user:root  pass:-");
         System.out.print("Setting server mysql?(y/t) : ");ytserver = reader.readLine().toUpperCase();
         if(ytserver.equals("Y")){
-            String ip,port,user,pass;
             System.out.print("Masukan IP Server : ");ip=reader.readLine();
             System.out.print("Masukan port Server : ");port=reader.readLine();
             System.out.print("Masukan username Server : ");user=reader.readLine();
@@ -47,7 +46,7 @@ public class Main {
             k.konek();
         }
         else if(ytserver.equals("T")){
-            k.setDB("localhost","3306","rawat_inap","root","");
+            k.setDB(ip,port,"rawat_inap",user,pass);
             k.konek();
         }
 
@@ -86,24 +85,29 @@ public class Main {
         }while (hak_akses==null);
 
         Menu menu = new Menu();
-        if(hak_akses.equals("Admin")){
+        MasterDataDokter md = new MasterDataDokter();
+        md.setDB(ip,port,user,pass);
 
+        if(hak_akses.equals("Admin")){
             menu.cetakMenu();
             switch (menu.getPilihan()){
                 case 1 :
                     menu.cetakMenuDokter();
                     switch (menu.getPilihan()){
                         case 1:
-                            menu.tambahDokter();
+                            md.tambahDokter();
                             break;
                         case 2:
-                            menu.hapusDokter();
+                            md.hapusDokter();
                             break;
                         case 3:
-                            menu.ubahDokter();
+                            md.ubahDokter();
                             break;
                         case 4:
-                            menu.cariDokter();
+                            md.cariDokter();
+                            break;
+                        case 5:
+                            md.tampilDokter();
                             break;
                     }
                     break;
