@@ -34,7 +34,7 @@ public class MasterDataDokter {
         System.out.print("│  6. Masukan Jenis Kelamin Dokter (L/P)?: ");jk = reader.readLine().toUpperCase();
         System.out.print("│  7. Masukan Tanggal Lahir Dokter(yyyy-mm-dd) : ");tgl_lahir = reader.readLine();
         if(jk.equals("L")){
-            jenis_kelamin="Laki - Laki";
+            jenis_kelamin="Laki-Laki";
         }
         else if(jk.equals("P")){
             jenis_kelamin="Perempuan";

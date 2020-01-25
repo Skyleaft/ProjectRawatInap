@@ -88,39 +88,41 @@ public class Main {
         MasterDataDokter md = new MasterDataDokter();
         md.setDB(ip,port,user,pass);
 
-        if(hak_akses.equals("Admin")){
-            menu.cetakMenu();
-            switch (menu.getPilihan()){
-                case 1 :
-                    menu.cetakMenuDokter();
-                    switch (menu.getPilihan()){
-                        case 1:
-                            md.tambahDokter();
-                            break;
-                        case 2:
-                            md.hapusDokter();
-                            break;
-                        case 3:
-                            md.ubahDokter();
-                            break;
-                        case 4:
-                            md.cariDokter();
-                            break;
-                        case 5:
-                            md.tampilDokter();
-                            break;
-                    }
-                    break;
-                case 2 :
-                    menu.cetakMenuPerawat();
-                    break;
-                case 3 :
-                    menu.cetakMenuPasien();
-                    break;
-                case 4 :
-                    break;
+        do{
+            if(hak_akses.equals("Admin")){
+                menu.cetakMenu();
+                switch (menu.getPilihan()) {
+                    case 1:
+                        menu.cetakMenuDokter();
+                        switch (menu.getPilihan()) {
+                            case 1:
+                                md.tambahDokter();
+                                break;
+                            case 2:
+                                md.hapusDokter();
+                                break;
+                            case 3:
+                                md.ubahDokter();
+                                break;
+                            case 4:
+                                md.cariDokter();
+                                break;
+                            case 5:
+                                md.tampilDokter();
+                                break;
+                        }
+                        break;
+                    case 2:
+                        menu.cetakMenuPerawat();
+                        break;
+                    case 3:
+                        menu.cetakMenuPasien();
+                        break;
+                    case 4:
+                        break;
+                }
             }
-            
-        }
+        }while (menu.getPilihan()!=8);
+
     }
 }

@@ -36,10 +36,13 @@ public class Menu {
         System.out.println("│  2. Data Perawat");
         System.out.println("│  3. Data Pasien");
         System.out.println("│  4. Data Kamar");
-        System.out.println("│  4. Registrasi Rawat Inap");
+        System.out.println("│  5. Data Tindakan");
+        System.out.println("│  6. Registrasi Rawat Inap");
+        System.out.println("│  7. Pembayaran");
+        System.out.println("│  8. Keluar");
         System.out.println("│                                 │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.print("Pilihan Anda (1-4)? : ");
+        System.out.print("Pilihan Anda (1-8)? : ");
         pilihan = scanner.nextInt();
     }
 
