@@ -88,8 +88,10 @@ public class Main {
         Menu menu = new Menu();
         MasterDataDokter md = new MasterDataDokter();
         MasterDataPerawat mp = new MasterDataPerawat();
+        MasterDataTindakan mt = new MasterDataTindakan();
         md.setDB(ip,port,user,pass);
         mp.setDB(ip,port,user,pass);
+        mt.setDB(ip,port,user,pass);
 
         do{
             if(hak_akses.equals("Admin")){
@@ -161,6 +163,35 @@ public class Main {
                         menu.cetakMenuPasien();
                         break;
                     case 4:
+                        menu.cetakMenuKamar();
+                        break;
+                    case 5:
+                        menu.cetakMenuTindakan();
+                        switch (menu.getPilihan()){
+                            case 1:
+                                mt.tambahTindakan();
+                                break;
+                            case 2:
+                                mt.hapusTindakan();
+                                break;
+                            case 3:
+                                mt.ubahTindakan();
+                                break;
+                            case 4:
+                                menu.cariTindakanBerdasarkan();
+                                switch (menu.getPilihan()){
+                                    case 1:
+                                        mt.cariTindakanKd();
+                                        break;
+                                    case 2:
+                                        mt.cariTindakanNama();
+                                        break;
+                                }
+                                break;
+                            case 5:
+                                mt.tampilTindakan();
+                                break;
+                        }
                         break;
                 }
             }

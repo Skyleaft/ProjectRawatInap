@@ -123,5 +123,28 @@ public class Menu {
         System.out.println("Pilihan Anda (1-4)?: ");
         pilihan = scanner.nextInt();
     }
-
+    
+    public void cetakMenuTindakan() throws IOException {
+        System.out.println("┌─────────────────────────────────┐");
+        System.out.println("│          Menu Tindakan             │");
+        System.out.println("├─────────────────────────────────┤");
+        System.out.println("│  1. Tambah Data");
+        System.out.println("│  2. Hapus Data");
+        System.out.println("│  3. Ubah Data");
+        System.out.println("│  4. cari Data");
+        System.out.println("│  5. Tampilkan Data");
+        System.out.println("└─────────────────────────────────┘");
+        System.out.println("Pilihan Anda (1-5)?: ");
+        pilihan = scanner.nextInt();
+    }    
+    public void cariTindakanBerdasarkan() throws IOException {
+        System.out.println("┌───────────────────────────────────────┐");
+        System.out.println("│       Cari Tindakan Berdasarkan        │");
+        System.out.println("├───────────────────────────────────────┤");
+        System.out.println("│  1. Kode Tindakan");
+        System.out.println("│  2. Nama Tindakan");
+        System.out.println("└───────────────────────────────────────┘");
+        System.out.print("Pilihan Anda (1-2)?: ");
+        pilihan = scanner.nextInt();
+    }
 }
