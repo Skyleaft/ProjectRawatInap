@@ -41,8 +41,8 @@ public class MasterDataDokter {
             }else{
                 baru = "DOK"+ tambah;
             }
-            id=baru;
         }
+        id=baru;
         System.out.println("┌────────────────────────────────────┐");
         System.out.println("│        Tambah Data Dokter          │");
         System.out.println("├────────────────────────────────────┤");

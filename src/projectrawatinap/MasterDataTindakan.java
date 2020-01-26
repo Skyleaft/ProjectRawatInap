@@ -17,12 +17,30 @@ public class MasterDataTindakan {
         k.setDB(ip,port,"rawat_inap",user,pass);
     }
 
-    public void tambahTindakan() throws IOException {
-        String kd,nama,biaya = null;
+    public void tambahTindakan() throws IOException, SQLException {
+        String kd = null,nama,biaya = null;
+        k.query ="SELECT * FROM tindakan";
+        k.ambil();
+        k.rs.last();
+        int baris = k.rs.getRow();
+        String baru;
+        if(baris==0){
+            baru = "TIN001";
+        }else{
+            int tambah = Integer.valueOf(k.rs.getString(1).substring(3,(k.rs.getString(1).length())))+ 1;
+            if(tambah < 10){
+                baru = "TIN00"+ tambah;
+            }else if(tambah < 100){
+                baru = "TIN0"+ tambah;
+            }else{
+                baru = "TIN"+ tambah;
+            }
+        }
+        kd=baru;
         System.out.println("┌───────────────────────────────────────┐");
         System.out.println("│          Tambah Data Tindakan         │");
         System.out.println("├───────────────────────────────────────┤");
-        System.out.print("│  1. Masukan Kode Tindakan : ");kd = reader.readLine();
+        System.out.println("│  1. Masukan Kode Tindakan (Otomatis) : "+kd);
         System.out.print("│  2. Masukan Nama Tindakan : ");nama = reader.readLine();
         System.out.print("│  3. Masukan Biaya Tindakan : ");biaya = reader.readLine();
         k.query = "insert into tindakan values('"+kd+"','"+nama+"','"+biaya+"');";
