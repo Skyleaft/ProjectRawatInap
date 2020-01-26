@@ -50,7 +50,7 @@ public class MasterDataPerawat {
     }
 
     public void ubahPerawat() throws IOException, SQLException {
-        String id,nama,alamat,no_telp,jenis_kelamin,tgl_lahir;
+        String id,nama,alamat,no_telp,jenis_kelamin=null,tgl_lahir,jk=null;
         System.out.println("┌────────────────────────────────────────┐");
         System.out.println("│            Ubah Data Perawat           │");
         System.out.println("├────────────────────────────────────────┤");
@@ -63,8 +63,17 @@ public class MasterDataPerawat {
             System.out.print("Nama Perawat : "+k.rs.getString("nama_perawat")+"     Ubah? : ");nama = reader.readLine();
             System.out.print("Alamat Perawat : "+k.rs.getString("alamat")+"     Ubah? : ");alamat = reader.readLine();
             System.out.print("Nomor Telepon Perawat : "+k.rs.getString("no_telp")+"     Ubah? : ");no_telp = reader.readLine();
-            System.out.print("jenis_kelamin Perawat : "+k.rs.getString("jenis_kelamin")+"     Ubah? : ");jenis_kelamin = reader.readLine();
-            System.out.print("Tanggal Lahir Perawat : "+k.rs.getString("tanggal_lahir")+"     Ubah? : ");tgl_lahir = reader.readLine();
+            System.out.print("jenis_kelamin Perawat : "+k.rs.getString("jenis_kelamin")+"     Ubah(L/P)? : ");jk = reader.readLine();
+            System.out.print("Tanggal Lahir Perawat : "+k.rs.getString("tanggal_lahir")+"     Ubah(yyyy-mm-dd)? : ");tgl_lahir = reader.readLine();
+            if(jk.equals("L")){
+                jenis_kelamin="Laki-Laki";
+            }
+            else if(jk.equals("P")){
+                jenis_kelamin="Perempuan";
+            }
+            else{
+                System.out.println("Salah Memasukan data Jenis Kelamin");
+            }
             if(!nama.equals("")){
                 k.query="update perawat set nama_perawat='"+nama+"' where id_perawat='"+id+"'";
                 k.crud();
@@ -77,7 +86,7 @@ public class MasterDataPerawat {
                 k.query="update perawat set no_telp='"+no_telp+"' where id_perawat='"+id+"'";
                 k.crud();
             }
-            if(!jenis_kelamin.equals("")){
+            if(!jk.equals("")){
                 k.query="update perawat set jenis_kelamin='"+jenis_kelamin+"' where id_perawat='"+id+"'";
                 k.crud();
             }
