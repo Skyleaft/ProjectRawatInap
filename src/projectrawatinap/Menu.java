@@ -60,6 +60,18 @@ public class Menu {
         pilihan = scanner.nextInt();
     }
 
+    public void cariDokterBerdasarkan() throws IOException {
+        System.out.println("┌─────────────────────────────────────┐");
+        System.out.println("│       Cari Dokter Berdasarkan       │");
+        System.out.println("├─────────────────────────────────────┤");
+        System.out.println("│  1. ID Dokter");
+        System.out.println("│  2. Nama Dokter");
+        System.out.println("│  3. Spesialisasi");
+        System.out.println("└─────────────────────────────────┘");
+        System.out.print("Pilihan Anda (1-3)?: ");
+        pilihan = scanner.nextInt();
+    }
+
     public void cetakMenuPerawat() throws IOException {
         System.out.println("┌─────────────────────────────────┐");
         System.out.println("│          Menu Perawat           │");

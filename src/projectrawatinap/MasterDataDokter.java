@@ -17,6 +17,8 @@ public class MasterDataDokter {
     Koneksi k = new Koneksi();
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     Scanner scanner = new Scanner(System.in);
+
+
     public void setDB(String ip,String port,String user,String pass){
         k.setDB(ip,port,"rawat_inap",user,pass);
     }
@@ -136,15 +138,22 @@ public class MasterDataDokter {
         reader.readLine();
     }
 
-    public void cariDokter() throws IOException, SQLException {
-        String nama,yt;
-        System.out.println("┌─────────────────────────────────┐");
-        System.out.println("│        Hapus Data Dokter        │");
-        System.out.println("├─────────────────────────────────┤");
-        System.out.print("│  1. Masukan Nama Dokter yang ingin dicari : ");nama = reader.readLine();
-        if(k.rs.getString("nama_dokter").equals(nama)){
-            k.query="select * from dokter where nama_dokter='"+nama+"'";
-            k.ambil();
+    public void cariDokterID() throws IOException, SQLException {
+        String id,yt;
+        System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
+        System.out.println("│                   Cari Data Dokter Berdasarkan ID                     │");
+        System.out.println("├───────────────────────────────────────────────────────────────────────┤");
+        System.out.print("│  1. Masukan ID Dokter yang ingin dicari : ");id = reader.readLine();
+        System.out.println();
+        CommandLineTable table = new CommandLineTable();
+        table.setShowVerticalLines(true);
+        table.setHeaders("ID Dokter","Nama Dokter","Alamat","Spesialisasi","No. Telp","Jenis Kelamin","Tanggal Lahir");
+        k.query="select * from dokter where id_dokter='"+id+"'";
+        k.ambil();
+        if(k.rs.next()){
+            table.addRow(k.rs.getString(1),k.rs.getString(2),k.rs.getString(3),
+                    k.rs.getString(4),k.rs.getString(5),k.rs.getString(6),k.rs.getString(7));
+            table.print();
         }else{
             System.out.println("Data Tidak Ditemukan");
         }
@@ -152,17 +161,60 @@ public class MasterDataDokter {
         reader.readLine();
     }
 
+    public void cariDokterNama() throws IOException, SQLException {
+        String nama,yt;
+        System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
+        System.out.println("│                   Cari Data Dokter Berdasarkan Nama                   │");
+        System.out.println("├───────────────────────────────────────────────────────────────────────┤");
+        System.out.print("│  1. Masukan Nama Dokter yang ingin dicari : ");nama = reader.readLine();
+        System.out.println();
+        CommandLineTable table = new CommandLineTable();
+        table.setShowVerticalLines(true);
+        table.setHeaders("ID Dokter","Nama Dokter","Alamat","Spesialisasi","No. Telp","Jenis Kelamin","Tanggal Lahir");
+        k.query="SELECT *FROM dokter WHERE nama_dokter LIKE '%"+nama+"%'";
+        k.ambil();
+        while (k.rs.next()){
+            table.addRow(k.rs.getString(1),k.rs.getString(2),k.rs.getString(3),
+                    k.rs.getString(4),k.rs.getString(5),k.rs.getString(6),k.rs.getString(7));
+        }
+        table.print();
+        System.out.println("Tekan Enter untuk melanjutkan");
+        reader.readLine();
+    }
+
+    public void cariDokterSpesialisasi() throws IOException, SQLException {
+        String spesialisasi,yt;
+        System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
+        System.out.println("│              Cari Data Dokter Berdasarkan Spesialisasi                │");
+        System.out.println("├───────────────────────────────────────────────────────────────────────┤");
+        System.out.print("│  1. Masukan Spesialis Dokter yang ingin dicari : ");spesialisasi = reader.readLine();
+        System.out.println();
+        CommandLineTable table = new CommandLineTable();
+        table.setShowVerticalLines(true);
+        table.setHeaders("ID Dokter","Nama Dokter","Alamat","Spesialisasi","No. Telp","Jenis Kelamin","Tanggal Lahir");
+        k.query="SELECT *FROM dokter WHERE spesialisasi = '"+spesialisasi+"'";
+        k.ambil();
+        while (k.rs.next()){
+            table.addRow(k.rs.getString(1),k.rs.getString(2),k.rs.getString(3),
+                    k.rs.getString(4),k.rs.getString(5),k.rs.getString(6),k.rs.getString(7));
+        }
+        table.print();
+        System.out.println("Tekan Enter untuk melanjutkan");
+        reader.readLine();
+    }
+
     public void tampilDokter() throws SQLException, IOException {
         String id,nama,alamat,spesialisasi,no_telp,jk,jenis_kelamin = null,tgl_lahir;
-        System.out.println("┌───────────────────────────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│                                        Data Dokter                                        │");
-        System.out.println("├───────────────────────────────────────────────────────────────────────────────────────────┤");
-        System.out.println("│  ID Dokter  │  Nama Dokter  │ Alamat  │ Spesialisasi  │  No.Telp  │ Jenis Kelamin │ Tanggal Lahir │");
+        CommandLineTable table = new CommandLineTable();
+        table.setShowVerticalLines(true);
+        table.setHeaders("ID Dokter","Nama Dokter","Alamat","Spesialisasi","No. Telp","Jenis Kelamin","Tanggal Lahir");
         k.query="select *from dokter";
         k.ambil();
         while (k.rs.next()){
-            System.out.println("│ "+k.rs.getString(1)+" │ "+k.rs.getString(2)+" │ "+k.rs.getString(3)+" │ "+k.rs.getString(4)+" │ "+k.rs.getString(5)+" │ "+k.rs.getString(6)+" │ "+k.rs.getString(7));
+            table.addRow(k.rs.getString(1),k.rs.getString(2),k.rs.getString(3),
+                    k.rs.getString(4),k.rs.getString(5),k.rs.getString(6),k.rs.getString(7));
         }
+        table.print();
         System.out.println("Tekan Enter untuk melanjutkan");
         reader.readLine();
     }

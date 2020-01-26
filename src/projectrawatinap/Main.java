@@ -105,7 +105,17 @@ public class Main {
                                 md.ubahDokter();
                                 break;
                             case 4:
-                                md.cariDokter();
+                                menu.cariDokterBerdasarkan();
+                                switch (menu.getPilihan()){
+                                    case 1:
+                                        md.cariDokterID();
+                                        break;
+                                    case 2:
+                                        md.cariDokterNama();
+                                        break;
+                                    case 3:
+                                        md.cariDokterSpesialisasi();
+                                }
                                 break;
                             case 5:
                                 md.tampilDokter();
@@ -122,6 +132,7 @@ public class Main {
                         break;
                 }
             }
+            clrscr();
         }while (menu.getPilihan()!=8);
 
     }
