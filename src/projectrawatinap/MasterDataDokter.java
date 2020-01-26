@@ -48,9 +48,9 @@ public class MasterDataDokter {
         k.query = "insert into dokter values('"+id+"','"+nama+"','"+alamat+"','"+spesialisasi+"','"+no_telp+"','"+jenis_kelamin+"','"+tgl_lahir+"');";
         k.crud();
         if(k.count>0){
-            System.out.println("Data Berhasil Dimasukan ");
+            System.out.println("Data Berhasil Disimpan ");
         }else{
-            System.out.println("Gagal Memasukan Data");
+            System.out.println("Gagal Menyimpan Data");
         }
         System.out.println("Tekan Enter untuk melanjutkan");
         reader.readLine();
@@ -65,39 +65,37 @@ public class MasterDataDokter {
         k.query="select * from dokter where id_dokter='"+id+"'";
         k.ambil();
         if (k.rs.next()) {
-            if(k.rs.getString("id_dokter").equals(id)){
-                System.out.println("ID Dokter : "+id);
-                System.out.println("Kosongkan jika tidak ingin diubah");
-                System.out.print("Nama Dokter : "+k.rs.getString("nama_dokter")+"   Ubah? : ");nama = reader.readLine();
-                System.out.print("alamat Dokter : "+k.rs.getString("alamat")+"   Ubah? : ");alamat = reader.readLine();
-                System.out.print("Spesialisasi Dokter : "+k.rs.getString("spesialisasi")+"   Ubah? : ");spesialisasi = reader.readLine();
-                System.out.print("Nomor Telepon Dokter : "+k.rs.getString("no_telp")+"   Ubah? : ");no_telp = reader.readLine();
-                System.out.print("jenis_kelamin Dokter : "+k.rs.getString("jenis_kelamin")+"   Ubah? : ");jenis_kelamin = reader.readLine();
-                System.out.print("tgl_lahir Dokter : "+k.rs.getString("tgl_lahir")+"   Ubah? : ");tgl_lahir = reader.readLine();
-                if(!nama.equals("")){
-                    k.query="update dokter set nama_dokter='"+nama+"' where id_dokter='"+id+"'";
-                    k.crud();
-                }
-                if(!alamat.equals("")){
-                    k.query="update dokter set alamat='"+alamat+"' where id_dokter='"+id+"'";
-                    k.crud();
-                }
-                if(!spesialisasi.equals("")){
-                    k.query="update dokter set spesialisasi='"+spesialisasi+"' where id_dokter='"+id+"'";
-                    k.crud();
-                }
-                if(!no_telp.equals("")){
-                    k.query="update dokter set no_telp='"+no_telp+"' where id_dokter='"+id+"'";
-                    k.crud();
-                }
-                if(!jenis_kelamin.equals("")){
-                    k.query="update dokter set jenis_kelamin='"+jenis_kelamin+"' where id_dokter='"+id+"'";
-                    k.crud();
-                }
-                if(!tgl_lahir.equals("")){
-                    k.query="update dokter set tgl_lahir='"+tgl_lahir+"' where id_dokter='"+id+"'";
-                    k.crud();
-                }
+            System.out.println("ID Dokter : "+id);
+            System.out.println("Kosongkan jika tidak ingin diubah");
+            System.out.print("Nama Dokter : "+k.rs.getString("nama_dokter")+"   Ubah? : ");nama = reader.readLine();
+            System.out.print("alamat Dokter : "+k.rs.getString("alamat")+"   Ubah? : ");alamat = reader.readLine();
+            System.out.print("Spesialisasi Dokter : "+k.rs.getString("spesialisasi")+"   Ubah? : ");spesialisasi = reader.readLine();
+            System.out.print("Nomor Telepon Dokter : "+k.rs.getString("no_telp")+"   Ubah? : ");no_telp = reader.readLine();
+            System.out.print("jenis_kelamin Dokter : "+k.rs.getString("jenis_kelamin")+"   Ubah? : ");jenis_kelamin = reader.readLine();
+            System.out.print("Tanggal Lahir Dokter : "+k.rs.getString("tanggal_lahir")+"   Ubah? : ");tgl_lahir = reader.readLine();
+            if(!nama.equals("")){
+                k.query="update dokter set nama_dokter='"+nama+"' where id_dokter='"+id+"'";
+                k.crud();
+            }
+            if(!alamat.equals("")){
+                k.query="update dokter set alamat='"+alamat+"' where id_dokter='"+id+"'";
+                k.crud();
+            }
+            if(!spesialisasi.equals("")){
+                k.query="update dokter set spesialisasi='"+spesialisasi+"' where id_dokter='"+id+"'";
+                k.crud();
+            }
+            if(!no_telp.equals("")){
+                k.query="update dokter set no_telp='"+no_telp+"' where id_dokter='"+id+"'";
+                k.crud();
+            }
+            if(!jenis_kelamin.equals("")){
+                k.query="update dokter set jenis_kelamin='"+jenis_kelamin+"' where id_dokter='"+id+"'";
+                k.crud();
+            }
+            if(!tgl_lahir.equals("")){
+                k.query="update dokter set tanggal_lahir='"+tgl_lahir+"' where id_dokter='"+id+"'";
+                k.crud();
             }
         }else{
             System.out.println("Data Tidak Ditemukan");

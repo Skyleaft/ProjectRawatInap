@@ -84,9 +84,12 @@ public class Main {
             }
         }while (hak_akses==null);
 
+        //initial
         Menu menu = new Menu();
         MasterDataDokter md = new MasterDataDokter();
+        MasterDataPerawat mp = new MasterDataPerawat();
         md.setDB(ip,port,user,pass);
+        mp.setDB(ip,port,user,pass);
 
         do{
             if(hak_akses.equals("Admin")){
@@ -115,6 +118,7 @@ public class Main {
                                         break;
                                     case 3:
                                         md.cariDokterSpesialisasi();
+                                        break;
                                 }
                                 break;
                             case 5:
@@ -124,6 +128,34 @@ public class Main {
                         break;
                     case 2:
                         menu.cetakMenuPerawat();
+                        switch (menu.getPilihan()) {
+                            case 1:
+                                mp.tambahPerawat();
+                                break;
+                            case 2:
+                                mp.hapusPerawat();
+                                break;
+                            case 3:
+                                mp.ubahPerawat();
+                                break;
+                            case 4:
+                                menu.cariPerawatBerdasarkan();
+                                switch (menu.getPilihan()){
+                                    case 1:
+                                        mp.cariPerawatID();
+                                        break;
+                                    case 2:
+                                        mp.cariPerawatNama();
+                                        break;
+                                    case 3:
+                                        mp.cariPerawatAlamat();
+                                        break;
+                                }
+                                break;
+                            case 5:
+                                mp.tampilPerawat();
+                                break;
+                        }
                         break;
                     case 3:
                         menu.cetakMenuPasien();
