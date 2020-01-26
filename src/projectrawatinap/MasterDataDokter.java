@@ -23,12 +23,30 @@ public class MasterDataDokter {
         k.setDB(ip,port,"rawat_inap",user,pass);
     }
 
-    public void tambahDokter() throws IOException {
-        String id,nama,alamat,spesialisasi,no_telp,jk,jenis_kelamin = null,tgl_lahir;
-        System.out.println("┌─────────────────────────────────┐");
-        System.out.println("│      Tambah Data Dokter         │");
-        System.out.println("├─────────────────────────────────┤");
-        System.out.print("│  1. Masukan ID Dokter : ");id = reader.readLine();
+    public void tambahDokter() throws IOException, SQLException {
+        String id = null,nama,alamat,spesialisasi,no_telp,jk,jenis_kelamin = null,tgl_lahir;
+        k.query ="SELECT * FROM dokter";
+        k.ambil();
+        k.rs.last();
+        int baris = k.rs.getRow();
+        String baru;
+        if(baris==0){
+            baru = "DOK001";
+        }else{
+            int tambah = Integer.valueOf(k.rs.getString(1).substring(3,(k.rs.getString(1).length())))+ 1;
+            if(tambah < 10){
+                baru = "DOK00"+ tambah;
+            }else if(tambah < 100){
+                baru = "DOK0"+ tambah;
+            }else{
+                baru = "DOK"+ tambah;
+            }
+            id=baru;
+        }
+        System.out.println("┌────────────────────────────────────┐");
+        System.out.println("│        Tambah Data Dokter          │");
+        System.out.println("├────────────────────────────────────┤");
+        System.out.println("│  1. ID Dokter (Otomatis): "+id);
         System.out.print("│  2. Masukan Nama Dokter : ");nama = reader.readLine();
         System.out.print("│  3. Masukan alamat Dokter : ");alamat = reader.readLine();
         System.out.print("│  4. Masukan spesialisasi Dokter : ");spesialisasi = reader.readLine();

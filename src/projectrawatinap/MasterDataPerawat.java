@@ -17,12 +17,31 @@ public class MasterDataPerawat {
         k.setDB(ip,port,"rawat_inap",user,pass);
     }
 
-    public void tambahPerawat() throws IOException {
-        String id,nama,alamat,no_telp,jk,jenis_kelamin = null,tgl_lahir;
+
+    public void tambahPerawat() throws IOException, SQLException {
+        String id = null,nama,alamat,no_telp,jk,jenis_kelamin = null,tgl_lahir;
+        k.query ="SELECT * FROM perawat";
+        k.ambil();
+        k.rs.last();
+        int baris = k.rs.getRow();
+        String baru;
+        if(baris==0){
+            baru = "PER001";
+        }else{
+            int tambah = Integer.valueOf(k.rs.getString(1).substring(3,(k.rs.getString(1).length())))+ 1;
+            if(tambah < 10){
+                baru = "PER00"+ tambah;
+            }else if(tambah < 100){
+                baru = "PER0"+ tambah;
+            }else{
+                baru = "PER"+ tambah;
+            }
+            id=baru;
+        }
         System.out.println("┌───────────────────────────────────────┐");
         System.out.println("│          Tambah Data Perawat          │");
         System.out.println("├───────────────────────────────────────┤");
-        System.out.print("│  1. Masukan ID Perawat : ");id = reader.readLine();
+        System.out.println("│  1. ID Perawat (Otomatis): "+id);
         System.out.print("│  2. Masukan Nama Perawat : ");nama = reader.readLine();
         System.out.print("│  3. Masukan alamat Perawat : ");alamat = reader.readLine();
         System.out.print("│  4. Masukan Nomor Telepon Perawat : ");no_telp = reader.readLine();
