@@ -147,4 +147,18 @@ public class Menu {
         System.out.print("Pilihan Anda (1-2)?: ");
         pilihan = scanner.nextInt();
     }
+
+    public void cetakMenuRegistrasi() throws IOException {
+        System.out.println("┌─────────────────────────────────┐");
+        System.out.println("│        Menu Registrasi          │");
+        System.out.println("├─────────────────────────────────┤");
+        System.out.println("│  1. Registrasi Pasien");
+        System.out.println("│  2. Registrasi Rawat");
+        System.out.println("│  3. Ubah Data");
+        System.out.println("│  4. cari Data");
+        System.out.println("│  5. Tampilkan Data");
+        System.out.println("└─────────────────────────────────┘");
+        System.out.println("Pilihan Anda (1-5)?: ");
+        pilihan = scanner.nextInt();
+    }
 }
