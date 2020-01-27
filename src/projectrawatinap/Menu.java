@@ -119,8 +119,19 @@ public class Menu {
         System.out.println("│  2. Hapus Data");
         System.out.println("│  3. Ubah Data");
         System.out.println("│  4. cari Data");
+        System.out.println("│  5. Tampilkan Data");
         System.out.println("└─────────────────────────────────┘");
-        System.out.println("Pilihan Anda (1-4)?: ");
+        System.out.println("Pilihan Anda (1-5)?: ");
+        pilihan = scanner.nextInt();
+    }
+    public void cariKamarBerdasarkan() throws IOException {
+        System.out.println("┌───────────────────────────────────────┐");
+        System.out.println("│         Cari Kamar Berdasarkan        │");
+        System.out.println("├───────────────────────────────────────┤");
+        System.out.println("│  1. Kode Kamar");
+        System.out.println("│  2. Tipe Kamar");
+        System.out.println("└───────────────────────────────────────┘");
+        System.out.print("Pilihan Anda (1-2)?: ");
         pilihan = scanner.nextInt();
     }
     
