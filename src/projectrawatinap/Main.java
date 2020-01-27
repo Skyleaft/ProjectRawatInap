@@ -85,10 +85,12 @@ public class Main {
         MasterDataDokter md = new MasterDataDokter();
         MasterDataPerawat mp = new MasterDataPerawat();
         MasterDataTindakan mt = new MasterDataTindakan();
+        MasterDataKamar mk = new MasterDataKamar();
         RegistrasiRawatInap reg = new RegistrasiRawatInap();
         md.setDB(ip,port,user,pass);
         mp.setDB(ip,port,user,pass);
         mt.setDB(ip,port,user,pass);
+        mk.setDB(ip, port, user, pass);
         reg.setDB(ip,port,user,pass);
 
         do{
@@ -162,6 +164,30 @@ public class Main {
                         break;
                     case 4: //menu kamar
                         menu.cetakMenuKamar();
+                        switch(menu.getPilihan()){
+                            case 1:
+                                mk.tambahKamar();
+                                break;
+                            case 2:
+                                mk.hapusKamar();
+                                break;
+                            case 3:
+                                mk.ubahKamar();
+                                break;
+                            case 4:
+                                menu.cariKamarBerdasarkan();
+                                switch(menu.getPilihan()){
+                                    case 1:
+                                        mk.cariKamarKd();
+                                        break;
+                                    case 2:
+                                        mk.cariKamarTipe();
+                                        break;
+                                }
+                            case 5:
+                                mk.tampilKamar();
+                                break;
+                        }
                         break;
                     case 5: //menu tindakan
                         menu.cetakMenuTindakan();
