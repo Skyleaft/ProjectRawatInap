@@ -174,7 +174,6 @@ public class MasterDataKamar {
         reader.readLine();
     }
     public void tampilKamar() throws SQLException, IOException {
-        String kd = null,tipe_kamar = null,no_kamar,biaya_kamar = null,deskripsi;
         CommandLineTable table = new CommandLineTable();
         table.setShowVerticalLines(true);
         table.setHeaders("Kode Kamar","Tipe Kamar","Nomor Kamar","Biaya Kamar","Deskripsi");
@@ -183,6 +182,7 @@ public class MasterDataKamar {
         while (k.rs.next()){
             table.addRow(k.rs.getString(1),k.rs.getString(2),k.rs.getString(3),
                     k.rs.getString(4),k.rs.getString(5));
+
         }
         table.print();
         System.out.println("Tekan Enter untuk melanjutkan");

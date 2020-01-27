@@ -184,6 +184,7 @@ public class Main {
                                         mk.cariKamarTipe();
                                         break;
                                 }
+                                break;
                             case 5:
                                 mk.tampilKamar();
                                 break;
