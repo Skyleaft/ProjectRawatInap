@@ -76,7 +76,7 @@ public class Menu {
         System.out.println("│  6. Keluar");
         System.out.println("│                                 │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.print("Pilihan Anda (1-7)? : ");
+        System.out.print("Pilihan Anda (1-6)? : ");
         pilihan = scanner.nextInt();
     }
 

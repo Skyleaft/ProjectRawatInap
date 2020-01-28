@@ -6,8 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Scanner;
@@ -31,8 +30,18 @@ public class Transaksi {
         String no_faktur,no_rawat,tgl,no_pasien = null,kd_kamar = null,tgl_reg;
         Date dreg,dbayar;
         long diff;
-        int nominal,hari = 0,biaya_kamar = 0,total_biaya_kamar,total_biaya_tindakan = 0;
+        int nominal,hari = 0,biaya_kamar = 0,total_biaya_kamar,total_biaya_tindakan = 0,total;
+        int biaya_tindakan,kembalian;
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+
+        kursIndonesia.setDecimalFormatSymbols(formatRp);
 
         k.query ="SELECT * FROM pembayaran";
         k.ambil();
@@ -72,26 +81,42 @@ public class Transaksi {
             diff = dbayar.getTime() - dreg.getTime();
             hari = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
         }
+        k.query="SELECT *FROM detail_rawat JOIN tindakan ON tindakan.`kd_tindakan`=detail_rawat.`kd_tindakan` JOIN `rawat` ON rawat.`no_rawat`=detail_rawat.`no_rawat` WHERE detail_rawat.`no_rawat`='"+no_rawat+"'";
+        k.ambil();
+        while (k.rs.next()){
+            biaya_tindakan=k.rs.getInt("biaya_tindakan");
+            total_biaya_tindakan += biaya_tindakan;
+        }
         System.out.println("│  4. Lama Menginap : "+hari+" Hari");
         total_biaya_kamar = hari * biaya_kamar;
 
-        System.out.println("│  5. Total Biaya Kamar: Rp."+total_biaya_kamar);
+        System.out.println("│  5. Total Biaya Kamar : "+kursIndonesia.format(total_biaya_kamar));
+        System.out.println("│  6. Total Biaya Tindakan : "+kursIndonesia.format(total_biaya_tindakan));
         if(total_biaya_tindakan!=0){
-
-        }
-        System.out.print("│  6. Masukan Nominal bayar : ");nominal = scanner.nextInt();
-
-        k.query = "insert into pembayaran values('"+no_faktur+"','"+no_rawat+"','"+tgl+"','"+nominal+"');";
-        k.crud();
-        if(k.count>0){
-            System.out.println("Data Berhasil Disimpan ");
-            k.query = "update pasien set status = 0 where no_pasien='"+no_pasien+"'";
-            k.crud();
-            k.query = "update kamar set status = 0 where kd_kamar ='"+kd_kamar+"'";
-            k.crud();
+            total= total_biaya_tindakan+total_biaya_kamar;
         }else{
-            System.out.println("Gagal Menyimpan Data");
+            total=total_biaya_kamar;
         }
+        System.out.println("│  7. Total Keseluruhan : "+kursIndonesia.format(total));
+        System.out.print("│  8. Masukan Nominal bayar : ");nominal = scanner.nextInt();
+        if(nominal>=total){
+            kembalian = nominal - total;
+            System.out.println("│  9. Kembalian : "+kursIndonesia.format(kembalian));
+            k.query = "insert into pembayaran values('"+no_faktur+"','"+no_rawat+"','"+tgl+"','"+nominal+"');";
+            k.crud();
+            if(k.count>0){
+                System.out.println("Data Berhasil Disimpan ");
+                k.query = "update pasien set status = 0 where no_pasien='"+no_pasien+"'";
+                k.crud();
+                k.query = "update kamar set status = 0 where kd_kamar ='"+kd_kamar+"'";
+                k.crud();
+            }else{
+                System.out.println("Gagal Menyimpan Data");
+            }
+            System.out.println("Pembayaran Selesai");
+        }
+
+
         System.out.println("Tekan Enter untuk melanjutkan");
         reader.readLine();
     }
