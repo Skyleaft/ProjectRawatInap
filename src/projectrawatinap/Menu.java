@@ -38,8 +38,9 @@ public class Menu {
         System.out.println("│  4. Data Kamar");
         System.out.println("│  5. Data Tindakan");
         System.out.println("│  6. Registrasi Rawat Inap");
-        System.out.println("│  7. Pembayaran");
-        System.out.println("│  8. Keluar");
+        System.out.println("│  7. Tindak Pasien");
+        System.out.println("│  8. Pembayaran");
+        System.out.println("│  9. Keluar");
         System.out.println("│                                 │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-8)? : ");
@@ -176,11 +177,19 @@ public class Menu {
         System.out.println("├─────────────────────────────────┤");
         System.out.println("│  1. Registrasi Pasien");
         System.out.println("│  2. Registrasi Rawat");
-        System.out.println("│  3. Ubah Data");
-        System.out.println("│  4. cari Data");
-        System.out.println("│  5. Tampilkan Data");
         System.out.println("└─────────────────────────────────┘");
-        System.out.println("Pilihan Anda (1-5)?: ");
+        System.out.println("Pilihan Anda (1-2)?: ");
+        pilihan = scanner.nextInt();
+    }
+
+    public void cetakMenuTransaksi() throws IOException {
+        System.out.println("┌─────────────────────────────────┐");
+        System.out.println("│        Menu Pembayaran          │");
+        System.out.println("├─────────────────────────────────┤");
+        System.out.println("│  1. Pembayaran Rawat Inap");
+        System.out.println("│  2. ");
+        System.out.println("└─────────────────────────────────┘");
+        System.out.println("Pilihan Anda (1-2)?: ");
         pilihan = scanner.nextInt();
     }
 }

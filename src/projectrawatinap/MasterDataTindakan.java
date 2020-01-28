@@ -157,7 +157,6 @@ public class MasterDataTindakan {
     }
 
     public void tampilTindakan() throws SQLException, IOException {
-        String kd,nama,biaya = null;
         CommandLineTable table = new CommandLineTable();
         table.setShowVerticalLines(true);
         table.setHeaders("Kode Tindakan","Nama Tindakan","Biaya Tindakan");
@@ -169,6 +168,52 @@ public class MasterDataTindakan {
         table.print();
         System.out.println("Tekan Enter untuk melanjutkan");
         reader.readLine();
+    }
+
+    public void tampilTindakan2() throws SQLException, IOException {
+        CommandLineTable table = new CommandLineTable();
+        table.setShowVerticalLines(true);
+        table.setHeaders("Kode Tindakan","Nama Tindakan","Biaya Tindakan");
+        k.query="select *from tindakan";
+        k.ambil();
+        while (k.rs.next()){
+            table.addRow(k.rs.getString(1),k.rs.getString(2),k.rs.getString(3));
+        }
+        table.print();
+    }
+
+
+
+    public void Tindak() throws IOException, SQLException {
+        String kd,yt = null,no_rawat,nama_pasien;
+        System.out.println("┌─────────────────────────────────┐");
+        System.out.println("│              Tindakan           │");
+        System.out.println("├─────────────────────────────────┤");
+        System.out.print("│  1. Masukan No Rawat yang akan di tindak : ");no_rawat = reader.readLine();
+        k.query="SELECT *FROM rawat JOIN pasien ON rawat.`no_pasien`=pasien.`no_pasien`  WHERE rawat.no_rawat='"+no_rawat+"'";
+        k.ambil();
+        if (k.rs.next()){
+            nama_pasien=k.rs.getString("nama_pasien");
+            do{
+                System.out.println("No Rawat : "+no_rawat+"    Nama Pasien : "+nama_pasien);
+                tampilTindakan2();
+                System.out.print("│  2. Masukan Kode Tindakan : ");kd = reader.readLine();
+                k.query="insert into detail_rawat values('"+no_rawat+"','"+kd+"')";
+                k.crud();
+                if(k.count>0){
+                    System.out.println("Berhasil ditambahkan");
+                }else{
+                    System.out.println("Gagal Menambahkan tindakan");
+                }
+                System.out.print("Tindak Lagi? (y/t) : ");yt=reader.readLine().toUpperCase();
+            }while (yt.equals("Y"));
+        }else{
+            System.out.println("Data Tidak Ditemukan");
+        }
+
+
+
+
     }
     
 }

@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
+import java.text.ParseException;
 
 /**
  *
@@ -27,7 +28,7 @@ public class Main {
     }
     
     
-    public static void main(String[] args) throws IOException, SQLException {
+    public static void main(String[] args) throws IOException, SQLException, ParseException {
         String hak_akses = null;
         String yt=null;
         String ytserver=null;
@@ -88,6 +89,7 @@ public class Main {
         MasterDataKamar mk = new MasterDataKamar();
         MasterDataPasien pas = new MasterDataPasien();
         RegistrasiRawatInap reg = new RegistrasiRawatInap();
+        Transaksi tr = new Transaksi();
 
         md.setDB(ip,port,user,pass);
         mp.setDB(ip,port,user,pass);
@@ -95,6 +97,7 @@ public class Main {
         mk.setDB(ip, port, user, pass);
         pas.setDB(ip, port, user, pass);
         reg.setDB(ip,port,user,pass);
+        tr.setDB(ip,port,user,pass);
 
         do{
             //if(hak_akses.equals("Admin")){
@@ -254,10 +257,21 @@ public class Main {
                                 break;
                         }
                         break;
+                    case 7:
+                        mt.Tindak();
+                        break;
+                    case 8:
+                        menu.cetakMenuTransaksi();
+                        switch (menu.getPilihan()){
+                            case 1:
+                                tr.pembayaran();
+                                break;
+                        }
+                        break;
                 }
             //}
             clrscr();
-        }while (menu.getPilihan()!=8);
+        }while (menu.getPilihan()!=9);
 
     }
 }
