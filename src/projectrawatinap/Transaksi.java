@@ -73,62 +73,71 @@ public class Transaksi {
         k.query="SELECT *FROM rawat JOIN pasien ON rawat.`no_pasien`=pasien.`no_pasien` JOIN kamar ON rawat.`kd_kamar`=kamar.`kd_kamar` WHERE rawat.no_rawat='"+no_rawat+"'";
         k.ambil();
         if(k.rs.next()){
-            no_pasien = k.rs.getString("no_pasien");
-            kd_kamar = k.rs.getString("kd_kamar");
-            tgl_reg = k.rs.getString("tgl_register");
-            biaya_kamar = k.rs.getInt("biaya_kamar");
-            dreg = dateFormat.parse(tgl_reg);
-            dbayar = dateFormat.parse(tgl);
-            diff = dbayar.getTime() - dreg.getTime();
-            hari = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
-        }
-        k.query="SELECT *FROM detail_rawat JOIN tindakan ON tindakan.`kd_tindakan`=detail_rawat.`kd_tindakan` JOIN `rawat` ON rawat.`no_rawat`=detail_rawat.`no_rawat` WHERE detail_rawat.`no_rawat`='"+no_rawat+"'";
-        k.ambil();
-        while (k.rs.next()){
-            biaya_tindakan=k.rs.getInt("biaya_tindakan");
-            total_biaya_tindakan += biaya_tindakan;
-        }
-        System.out.println("│  4. Lama Menginap : "+hari+" Hari");
-        total_biaya_kamar = hari * biaya_kamar;
+            if (k.rs.getInt("rawat.status")==1){
+                no_pasien = k.rs.getString("no_pasien");
+                kd_kamar = k.rs.getString("kd_kamar");
+                tgl_reg = k.rs.getString("tgl_register");
+                biaya_kamar = k.rs.getInt("biaya_kamar");
+                dreg = dateFormat.parse(tgl_reg);
+                dbayar = dateFormat.parse(tgl);
+                diff = dbayar.getTime() - dreg.getTime();
+                hari = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
 
-        System.out.println("│  5. Total Biaya Kamar : "+kursIndonesia.format(total_biaya_kamar));
-        System.out.println("│  6. Total Biaya Tindakan : "+kursIndonesia.format(total_biaya_tindakan));
-        if(total_biaya_tindakan!=0){
-            total= total_biaya_tindakan+total_biaya_kamar;
-            k.query="SELECT *FROM detail_rawat JOIN tindakan ON tindakan.`kd_tindakan`=detail_rawat.`kd_tindakan` " +
-                    "JOIN `rawat` ON rawat.`no_rawat`=detail_rawat.`no_rawat` " +
-                    "JOIN pasien ON rawat.`no_pasien`=pasien.`no_pasien` WHERE detail_rawat.`no_rawat`='"+no_rawat+"'";
-            k.ambil();
-            table.setShowVerticalLines(true);
-            table.setHeaders("No Rawat","Nama Pasien","Nama Tindakan","Biaya Tindakan");
-            while (k.rs.next()){
-                table.addRow(k.rs.getString("no_rawat"),k.rs.getString("nama_pasien"),
-                        k.rs.getString("nama_tindakan"),kursIndonesia.format(k.rs.getInt("biaya_tindakan")));
-                total_biaya_tindakan+=k.rs.getInt("biaya_tindakan");
-            }
-            table.print();
-        }else{
-            total=total_biaya_kamar;
-        }
-        System.out.println("│  7. Total Keseluruhan : "+kursIndonesia.format(total));
-        System.out.print("│  8. Masukan Nominal bayar : ");nominal = scanner.nextInt();
-        if(nominal>=total){
-            kembalian = nominal - total;
-            System.out.println("│  9. Kembalian : "+kursIndonesia.format(kembalian));
-            k.query = "insert into pembayaran values('"+no_faktur+"','"+no_rawat+"','"+tgl+"','"+nominal+"');";
-            k.crud();
-            if(k.count>0){
-                System.out.println("Data Berhasil Disimpan ");
-                k.query = "update pasien set status = 0 where no_pasien='"+no_pasien+"'";
-                k.crud();
-                k.query = "update kamar set status = 0 where kd_kamar ='"+kd_kamar+"'";
-                k.crud();
+                k.query="SELECT *FROM detail_rawat JOIN tindakan ON tindakan.`kd_tindakan`=detail_rawat.`kd_tindakan` JOIN `rawat` ON rawat.`no_rawat`=detail_rawat.`no_rawat` WHERE detail_rawat.`no_rawat`='"+no_rawat+"'";
+                k.ambil();
+                while (k.rs.next()){
+                    biaya_tindakan=k.rs.getInt("biaya_tindakan");
+                    total_biaya_tindakan += biaya_tindakan;
+                }
+                System.out.println("│  4. Lama Menginap : "+hari+" Hari");
+                total_biaya_kamar = hari * biaya_kamar;
+
+                System.out.println("│  5. Total Biaya Kamar : "+kursIndonesia.format(total_biaya_kamar));
+                System.out.println("│  6. Total Biaya Tindakan : "+kursIndonesia.format(total_biaya_tindakan));
+                if(total_biaya_tindakan!=0){
+                    total= total_biaya_tindakan+total_biaya_kamar;
+                    k.query="SELECT *FROM detail_rawat JOIN tindakan ON tindakan.`kd_tindakan`=detail_rawat.`kd_tindakan` " +
+                            "JOIN `rawat` ON rawat.`no_rawat`=detail_rawat.`no_rawat` " +
+                            "JOIN pasien ON rawat.`no_pasien`=pasien.`no_pasien` WHERE detail_rawat.`no_rawat`='"+no_rawat+"'";
+                    k.ambil();
+                    table.setShowVerticalLines(true);
+                    table.setHeaders("No Rawat","Nama Pasien","Nama Tindakan","Biaya Tindakan");
+                    while (k.rs.next()){
+                        table.addRow(k.rs.getString("no_rawat"),k.rs.getString("nama_pasien"),
+                                k.rs.getString("nama_tindakan"),kursIndonesia.format(k.rs.getInt("biaya_tindakan")));
+                        total_biaya_tindakan+=k.rs.getInt("biaya_tindakan");
+                    }
+                    table.print();
+                }else{
+                    total=total_biaya_kamar;
+                }
+                System.out.println("│  7. Total Keseluruhan : "+kursIndonesia.format(total));
+                System.out.print("│  8. Masukan Nominal bayar : ");nominal = scanner.nextInt();
+                if(nominal>=total){
+                    kembalian = nominal - total;
+                    System.out.println("│  9. Kembalian : "+kursIndonesia.format(kembalian));
+                    k.query = "insert into pembayaran values('"+no_faktur+"','"+no_rawat+"','"+tgl+"','"+total+"','"+nominal+"','"+kembalian+"');";
+                    k.crud();
+                    if(k.count>0){
+                        System.out.println("Data Berhasil Disimpan ");
+                        k.query = "update pasien set status = 0 where no_pasien='"+no_pasien+"'";
+                        k.crud();
+                        k.query = "update kamar set status = 0 where kd_kamar ='"+kd_kamar+"'";
+                        k.crud();
+                        k.query = "update rawat set status = 0 where no_rawat ='"+no_rawat+"'";
+                        k.crud();
+                    }else{
+                        System.out.println("Gagal Menyimpan Data");
+                    }
+                    System.out.println("Pembayaran Selesai");
+                }else{
+                    System.out.println("Uang Anda Kurang");
+                }
+
             }else{
-                System.out.println("Gagal Menyimpan Data");
+                System.out.println("Transaksi sudah dilakukan");
             }
-            System.out.println("Pembayaran Selesai");
         }
-
 
         System.out.println("Tekan Enter untuk melanjutkan");
         reader.readLine();
