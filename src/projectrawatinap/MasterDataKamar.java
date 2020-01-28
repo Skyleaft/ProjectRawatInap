@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Scanner;
 
 /**
@@ -175,13 +177,21 @@ public class MasterDataKamar {
     }
     public void tampilKamar() throws SQLException, IOException {
         CommandLineTable table = new CommandLineTable();
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+
+        kursIndonesia.setDecimalFormatSymbols(formatRp);
         table.setShowVerticalLines(true);
         table.setHeaders("Kode Kamar","Tipe Kamar","Nomor Kamar","Biaya Kamar","Deskripsi");
         k.query="select * from kamar";
         k.ambil();
         while (k.rs.next()){
             table.addRow(k.rs.getString(1),k.rs.getString(2),k.rs.getString(3),
-                    k.rs.getString(4),k.rs.getString(5));
+                    kursIndonesia.format(k.rs.getInt(4)),k.rs.getString(5));
 
         }
         table.print();
@@ -191,13 +201,22 @@ public class MasterDataKamar {
 
     public void tampilKamarTersedia() throws SQLException, IOException {
         CommandLineTable table = new CommandLineTable();
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+
+        kursIndonesia.setDecimalFormatSymbols(formatRp);
         table.setShowVerticalLines(true);
         table.setHeaders("Kode Kamar","Tipe Kamar","Nomor Kamar","Biaya Kamar");
+
         k.query="select * from kamar where status =0";
         k.ambil();
         while (k.rs.next()){
             table.addRow(k.rs.getString(1),k.rs.getString(2),k.rs.getString(3),
-                    k.rs.getString(4));
+                    kursIndonesia.format(k.rs.getInt(4)));
         }
         table.print();
 

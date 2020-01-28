@@ -160,12 +160,20 @@ public class MasterDataTindakan {
 
     public void tampilTindakan() throws SQLException, IOException {
         CommandLineTable table = new CommandLineTable();
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+
+        kursIndonesia.setDecimalFormatSymbols(formatRp);
         table.setShowVerticalLines(true);
         table.setHeaders("Kode Tindakan","Nama Tindakan","Biaya Tindakan");
         k.query="select *from tindakan";
         k.ambil();
         while (k.rs.next()){
-            table.addRow(k.rs.getString(1),k.rs.getString(2),k.rs.getString(3));
+            table.addRow(k.rs.getString(1),k.rs.getString(2),kursIndonesia.format(k.rs.getInt(3)));
         }
         table.print();
         System.out.println("Tekan Enter untuk melanjutkan");
@@ -174,12 +182,20 @@ public class MasterDataTindakan {
 
     public void tampilTindakan2() throws SQLException, IOException {
         CommandLineTable table = new CommandLineTable();
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+
+        kursIndonesia.setDecimalFormatSymbols(formatRp);
         table.setShowVerticalLines(true);
         table.setHeaders("Kode Tindakan","Nama Tindakan","Biaya Tindakan");
         k.query="select *from tindakan";
         k.ambil();
         while (k.rs.next()){
-            table.addRow(k.rs.getString(1),k.rs.getString(2),k.rs.getString(3));
+            table.addRow(k.rs.getString(1),k.rs.getString(2),kursIndonesia.format(k.rs.getInt(3)));
         }
         table.print();
     }
