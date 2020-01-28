@@ -36,50 +36,50 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         LoginScreen ls = new LoginScreen();
         Koneksi k = new Koneksi();
-//        System.out.println("default ip:localhost   port:3306   user:root  pass:-");
-//        System.out.print("Setting server mysql?(y/t) : ");ytserver = reader.readLine().toUpperCase();
-//        if(ytserver.equals("Y")){
-//            System.out.print("Masukan IP Server : ");ip=reader.readLine();
-//            System.out.print("Masukan port Server : ");port=reader.readLine();
-//            System.out.print("Masukan username Server : ");user=reader.readLine();
-//            System.out.print("Masukan password Server : ");pass=reader.readLine();
-//            k.setDB(ip,port,"rawat_inap",user,pass);
-//            k.konek();
-//        }
-//        else if(ytserver.equals("T")){
-//            k.setDB(ip,port,"rawat_inap",user,pass);
-//            k.konek();
-//        }
-//
-//
-//        do {
-//            clrscr();
-//            System.out.println();
-//            ls.cetakLogin();
-//
-//            k.query="Select * from user where username = '"+ls.getUname()+"' and password = '"+ls.getPass()+"';";
-//            k.ambil();
-//            if(k.rs.next()){
-//                clrscr();
-//
-//                if(k.rs.getString("hak_akses").equals("admin")){
-//                    hak_akses="Admin";
-//                }else{
-//                    hak_akses="Petugas";
-//                }
-//                System.out.println("\n┌──────────────────────────────┐");
-//                System.out.println("│        Login Berhasil        │");
-//                System.out.println("│  Anda Login Sebagai "+hak_akses);
-//                System.out.println("└──────────────────────────────┘");
-//            }
-//            else{
-//                System.out.println("┌────────────────────────────────┐");
-//                System.out.println("│  Username atau Password Salah  │");
-//                System.out.println("└────────────────────────────────┘");
-//                System.out.println("Tekan Enter Untuk Login Lagi");
-//                reader.readLine();
-//            }
-//        }while (hak_akses==null);
+        System.out.println("default ip:localhost   port:3306   user:root  pass:-");
+        System.out.print("Setting server mysql?(y/t) : ");ytserver = reader.readLine().toUpperCase();
+        if(ytserver.equals("Y")){
+            System.out.print("Masukan IP Server : ");ip=reader.readLine();
+            System.out.print("Masukan port Server : ");port=reader.readLine();
+            System.out.print("Masukan username Server : ");user=reader.readLine();
+            System.out.print("Masukan password Server : ");pass=reader.readLine();
+            k.setDB(ip,port,"rawat_inap",user,pass);
+            k.konek();
+        }
+        else if(ytserver.equals("T")){
+            k.setDB(ip,port,"rawat_inap",user,pass);
+            k.konek();
+        }
+
+
+        do {
+            clrscr();
+            System.out.println();
+            ls.cetakLogin();
+
+            k.query="Select * from user where username = '"+ls.getUname()+"' and password = '"+ls.getPass()+"';";
+            k.ambil();
+            if(k.rs.next()){
+                clrscr();
+
+                if(k.rs.getString("hak_akses").equals("admin")){
+                    hak_akses="Admin";
+                }else{
+                    hak_akses="Petugas";
+                }
+                System.out.println("\n┌──────────────────────────────┐");
+                System.out.println("│        Login Berhasil        │");
+                System.out.println("│  Anda Login Sebagai "+hak_akses);
+                System.out.println("└──────────────────────────────┘");
+            }
+            else{
+                System.out.println("┌────────────────────────────────┐");
+                System.out.println("│  Username atau Password Salah  │");
+                System.out.println("└────────────────────────────────┘");
+                System.out.println("Tekan Enter Untuk Login Lagi");
+                reader.readLine();
+            }
+        }while (hak_akses==null);
 
         //initial
         Menu menu = new Menu();

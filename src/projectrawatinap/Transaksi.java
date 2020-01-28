@@ -31,7 +31,7 @@ public class Transaksi {
         String no_faktur,no_rawat,tgl,no_pasien = null,kd_kamar = null,tgl_reg;
         Date dreg,dbayar;
         long diff;
-        int nominal,hari = 0,biaya_kamar = 0,total_biaya_kamar;
+        int nominal,hari = 0,biaya_kamar = 0,total_biaya_kamar,total_biaya_tindakan = 0;
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
 
         k.query ="SELECT * FROM pembayaran";
@@ -76,6 +76,9 @@ public class Transaksi {
         total_biaya_kamar = hari * biaya_kamar;
 
         System.out.println("│  5. Total Biaya Kamar: Rp."+total_biaya_kamar);
+        if(total_biaya_tindakan!=0){
+
+        }
         System.out.print("│  6. Masukan Nominal bayar : ");nominal = scanner.nextInt();
 
         k.query = "insert into pembayaran values('"+no_faktur+"','"+no_rawat+"','"+tgl+"','"+nominal+"');";
