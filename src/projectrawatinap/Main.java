@@ -32,11 +32,11 @@ public class Main {
         String hak_akses = null;
         String yt=null;
         String ytserver=null;
-        String ip="localhost",port="3306",user="root",pass=null;
+        String ip="103.85.122.169",port="3306",user="coba",pass="123";
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         LoginScreen ls = new LoginScreen();
         Koneksi k = new Koneksi();
-        System.out.println("default ip:localhost   port:3306   user:root  pass:-");
+        System.out.println("default ip:103.85.122.169   port:3306   user:coba  pass:123");
         System.out.print("Setting server mysql?(y/t) : ");ytserver = reader.readLine().toUpperCase();
         if(ytserver.equals("Y")){
             System.out.print("Masukan IP Server : ");ip=reader.readLine();
