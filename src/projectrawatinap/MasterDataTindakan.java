@@ -265,10 +265,8 @@ public class MasterDataTindakan {
         }else{
             System.out.println("Data Tidak Ditemukan");
         }
-
-
-
-
+        System.out.println("Tekan Enter untuk melanjutkan");
+        reader.readLine();
     }
     
 }
