@@ -61,7 +61,7 @@ public class Menu {
         System.out.println("│  8. Keluar                      │");
         System.out.println("│                                 │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.print("Pilihan Anda (1-7)? : ");
+        System.out.print("Pilihan Anda (1-8)? : ");
         pilihan = scanner.nextInt();
     }
 
@@ -118,7 +118,7 @@ public class Menu {
         System.out.println("│  4. Cari Data                   │");
         System.out.println("│  5. Tampilkan Data              │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.println("Pilihan Anda (1-4)?: ");
+        System.out.println("Pilihan Anda (1-5)?: ");
         pilihan = scanner.nextInt();
     }
 
