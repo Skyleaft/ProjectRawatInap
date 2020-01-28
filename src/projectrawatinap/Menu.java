@@ -118,7 +118,7 @@ public class Menu {
         System.out.println("│  4. Cari Data                   │");
         System.out.println("│  5. Tampilkan Data              │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.println("Pilihan Anda (1-5)?: ");
+        System.out.print("Pilihan Anda (1-5)?: ");
         pilihan = scanner.nextInt();
     }
 
@@ -143,7 +143,7 @@ public class Menu {
         System.out.println("│  3. cari Data                   │");
         System.out.println("│  4. Tampil Data                 │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.println("Pilihan Anda (1-4)?: ");
+        System.out.print("Pilihan Anda (1-4)?: ");
         pilihan = scanner.nextInt();
     }
 
@@ -168,7 +168,7 @@ public class Menu {
         System.out.println("│  4. cari Data                   │");
         System.out.println("│  5. Tampilkan Data              │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.println("Pilihan Anda (1-5)?: ");
+        System.out.print("Pilihan Anda (1-5)?: ");
         pilihan = scanner.nextInt();
     }
     public void cariKamarBerdasarkan() throws IOException {
@@ -192,7 +192,7 @@ public class Menu {
         System.out.println("│  4. cari Data                   │");
         System.out.println("│  5. Tampilkan Data              │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.println("Pilihan Anda (1-5)?: ");
+        System.out.print("Pilihan Anda (1-5)?: ");
         pilihan = scanner.nextInt();
     }    
     public void cariTindakanBerdasarkan() throws IOException {
@@ -213,7 +213,7 @@ public class Menu {
         System.out.println("│  1. Registrasi Pasien           │");
         System.out.println("│  2. Registrasi Rawat            │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.println("Pilihan Anda (1-2)?: ");
+        System.out.print("Pilihan Anda (1-2)?: ");
         pilihan = scanner.nextInt();
     }
 
@@ -224,7 +224,7 @@ public class Menu {
         System.out.println("│  1. Pembayaran Rawat Inap       │");
         System.out.println("│  2. Lihat Detail Rawat          │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.println("Pilihan Anda (1-2)?: ");
+        System.out.print("Pilihan Anda (1-2)?: ");
         pilihan = scanner.nextInt();
     }
 }
