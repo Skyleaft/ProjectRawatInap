@@ -86,11 +86,14 @@ public class Main {
         MasterDataPerawat mp = new MasterDataPerawat();
         MasterDataTindakan mt = new MasterDataTindakan();
         MasterDataKamar mk = new MasterDataKamar();
+        MasterDataPasien pas = new MasterDataPasien();
         RegistrasiRawatInap reg = new RegistrasiRawatInap();
+
         md.setDB(ip,port,user,pass);
         mp.setDB(ip,port,user,pass);
         mt.setDB(ip,port,user,pass);
         mk.setDB(ip, port, user, pass);
+        pas.setDB(ip, port, user, pass);
         reg.setDB(ip,port,user,pass);
 
         do{
@@ -161,6 +164,28 @@ public class Main {
                         break;
                     case 3: //menu pasien
                         menu.cetakMenuPasien();
+                        switch (menu.getPilihan()){
+                            case 1:
+                                pas.hapusPasien();
+                                break;
+                            case 2:
+                                pas.ubahPasien();
+                                break;
+                            case 3:
+                                menu.cariPasienBerdasarkan();
+                                switch (menu.getPilihan()){
+                                    case 1:
+                                        pas.cariPasienID();
+                                        break;
+                                    case 2:
+                                        pas.cariPasienNama();
+                                        break;
+                                }
+                                break;
+                            case 4:
+                                pas.tampilPasien();
+                                break;
+                        }
                         break;
                     case 4: //menu kamar
                         menu.cetakMenuKamar();
@@ -218,7 +243,7 @@ public class Main {
                                 break;
                         }
                         break;
-                    case 6:
+                    case 6: //menu registrasi
                         menu.cetakMenuRegistrasi();
                         switch (menu.getPilihan()){
                             case 1:

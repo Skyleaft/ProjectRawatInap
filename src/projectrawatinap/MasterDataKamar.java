@@ -35,11 +35,11 @@ public class MasterDataKamar {
         }else{
             int tambah = Integer.valueOf(k.rs.getString(1).substring(3,(k.rs.getString(1).length())))+ 1;
             if(tambah < 10){
-                baru = "KAM00"+ tambah;
+                baru = "KMR00"+ tambah;
             }else if(tambah < 100){
-                baru = "KAM0"+ tambah;
+                baru = "KMR0"+ tambah;
             }else{
-                baru = "KAM"+ tambah;
+                baru = "KMR"+ tambah;
             }
         }
         kd=baru;

@@ -102,12 +102,23 @@ public class Menu {
         System.out.println("┌─────────────────────────────────┐");
         System.out.println("│          Menu Pasien            │");
         System.out.println("├─────────────────────────────────┤");
-        System.out.println("│  1. Tambah Data");
-        System.out.println("│  2. Hapus Data");
-        System.out.println("│  3. Ubah Data");
-        System.out.println("│  4. cari Data");
+        System.out.println("│  1. Hapus Data");
+        System.out.println("│  2. Ubah Data");
+        System.out.println("│  3. cari Data");
+        System.out.println("│  4. Tampil Data");
         System.out.println("└─────────────────────────────────┘");
         System.out.println("Pilihan Anda (1-4)?: ");
+        pilihan = scanner.nextInt();
+    }
+
+    public void cariPasienBerdasarkan() throws IOException {
+        System.out.println("┌─────────────────────────────────────┐");
+        System.out.println("│       Cari Pasien Berdasarkan       │");
+        System.out.println("├─────────────────────────────────────┤");
+        System.out.println("│  1. ID Pasien");
+        System.out.println("│  2. Nama Pasien");
+        System.out.println("└─────────────────────────────────┘");
+        System.out.print("Pilihan Anda (1-2)?: ");
         pilihan = scanner.nextInt();
     }
 
