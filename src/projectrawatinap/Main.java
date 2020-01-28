@@ -62,10 +62,12 @@ public class Main {
             if(k.rs.next()){
                 clrscr();
 
-                if(k.rs.getString("hak_akses").equals("admin")){
+                if(k.rs.getString("hak_akses").equals("Admin")){
                     hak_akses="Admin";
-                }else{
+                }else if(k.rs.getString("hak_akses").equals("Petugas")){
                     hak_akses="Petugas";
+                }else if(k.rs.getString("hak_akses").equals("Dokter")){
+                    hak_akses="Dokter";
                 }
                 System.out.println("\n┌──────────────────────────────┐");
                 System.out.println("│        Login Berhasil        │");
