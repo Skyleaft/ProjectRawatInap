@@ -137,6 +137,8 @@ public class Transaksi {
             }else{
                 System.out.println("Transaksi sudah dilakukan");
             }
+        }else {
+            System.out.println("Data Tidak Ditemukan");
         }
 
         System.out.println("Tekan Enter untuk melanjutkan");
