@@ -188,4 +188,18 @@ public class MasterDataKamar {
         System.out.println("Tekan Enter untuk melanjutkan");
         reader.readLine();
     }
+
+    public void tampilKamarTersedia() throws SQLException, IOException {
+        CommandLineTable table = new CommandLineTable();
+        table.setShowVerticalLines(true);
+        table.setHeaders("Kode Kamar","Tipe Kamar","Nomor Kamar","Biaya Kamar");
+        k.query="select * from kamar where status =0";
+        k.ambil();
+        while (k.rs.next()){
+            table.addRow(k.rs.getString(1),k.rs.getString(2),k.rs.getString(3),
+                    k.rs.getString(4));
+        }
+        table.print();
+
+    }
 }

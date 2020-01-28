@@ -249,6 +249,9 @@ public class Main {
                             case 1:
                                 reg.registerPasien();
                                 break;
+                            case 2:
+                                reg.registerRawat();
+                                break;
                         }
                         break;
                 }

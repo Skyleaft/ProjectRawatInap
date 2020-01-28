@@ -12,10 +12,15 @@ public class RegistrasiRawatInap {
     Koneksi k = new Koneksi();
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     Scanner scanner = new Scanner(System.in);
+    String ip,port,user,pass;
 
 
-    public void setDB(String ip,String port,String user,String pass){
-        k.setDB(ip,port,"rawat_inap",user,pass);
+    public void setDB(String _ip,String _port,String _user,String _pass){
+        k.setDB(_ip,_port,"rawat_inap",_user,_pass);
+        ip=_ip;
+        port=_port;
+        user=_user;
+        pass=_pass;
     }
 
     public void registerPasien() throws SQLException, IOException {
@@ -71,8 +76,13 @@ public class RegistrasiRawatInap {
     }
 
     public void registerRawat() throws SQLException, IOException {
-        String no_rawat,no_pasien,kd_kamar,id_perawat,id_dokter;
+        String no_rawat,no_pasien,kd_kamar,id_perawat,id_dokter,tgl;
         int lama;
+
+        MasterDataPasien mpas = new MasterDataPasien();
+        MasterDataKamar mk = new MasterDataKamar();
+        mk.setDB(ip, port, user, pass);
+        mpas.setDB(ip, port, user, pass);
 
         k.query ="SELECT * FROM rawat";
         k.ambil();
@@ -97,11 +107,33 @@ public class RegistrasiRawatInap {
         System.out.println("│         Registrasi Rawat Inap          │");
         System.out.println("├────────────────────────────────────────┤");
         System.out.println("│  1. ID Rawat (Otomatis): "+no_rawat);
-        System.out.print("│  2. Masukan ID Pasien : ");no_pasien = reader.readLine();
-        System.out.print("│  3. Masukan KD Kamar : ");kd_kamar = reader.readLine();
-        System.out.print("│  7. Masukan ID Perawat yang mengurus : ");id_perawat = reader.readLine();
-        System.out.print("│  5. Masukan ID Dokter : ");id_dokter = reader.readLine();
-        System.out.print("│  3. Masukan Lama Menginap : ");lama = scanner.nextInt();
+        tgl = java.time.LocalDate.now().toString();
+        System.out.print("│  2. Tanggal Rawat : "+tgl+" Ubah? : ");tgl = reader.readLine();
+        if(tgl.equals("")){
+            tgl = java.time.LocalDate.now().toString();
+        }
+        mpas.tampilPasienRawat();
+        System.out.print("│  3. Masukan ID Pasien : ");no_pasien = reader.readLine();
+        System.out.println("Kamar Tersedia :");
+        mk.tampilKamarTersedia();
+        System.out.print("│  4. Masukan KD Kamar : ");kd_kamar = reader.readLine();
+        System.out.print("│  5. Masukan ID Perawat yang mengurus : ");id_perawat = reader.readLine();
+        System.out.print("│  6. Masukan ID Dokter : ");id_dokter = reader.readLine();
+
+        k.query = "insert into rawat values('"+no_rawat+"','"+tgl+"','"+no_pasien+"','"+kd_kamar+"','"+id_perawat+"','"+id_dokter+"');";
+        k.crud();
+        if(k.count>0){
+            System.out.println("Data Berhasil Disimpan ");
+            k.query = "update pasien set status = 1 where no_pasien='"+no_pasien+"'";
+            k.crud();
+            k.query = "update kamar set status = 1 where kd_kamar ='"+kd_kamar+"'";
+            k.crud();
+        }else{
+            System.out.println("Gagal Menyimpan Data");
+        }
+
+        System.out.println("Tekan Enter untuk melanjutkan");
+        reader.readLine();
 
     }
 

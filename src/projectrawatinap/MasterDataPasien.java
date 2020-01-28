@@ -152,7 +152,6 @@ public class MasterDataPasien {
     }
 
     public void tampilPasien() throws SQLException, IOException {
-        String id,nama,alamat,spesialisasi,no_telp,jk,jenis_kelamin = null,tgl_lahir;
         CommandLineTable table = new CommandLineTable();
         table.setShowVerticalLines(true);
         table.setHeaders("ID Pasien","Nama Pasien","Jenis Kelamin","Tanggal Lahir","No. Telp","Alamat","Pekerjaan");
@@ -165,6 +164,18 @@ public class MasterDataPasien {
         table.print();
         System.out.println("Tekan Enter untuk melanjutkan");
         reader.readLine();
+    }
+
+    public void tampilPasienRawat() throws SQLException, IOException {
+        CommandLineTable table = new CommandLineTable();
+        table.setShowVerticalLines(true);
+        table.setHeaders("ID Pasien","Nama Pasien","Jenis Kelamin","Tanggal Lahir");
+        k.query="select *from pasien where status=0";
+        k.ambil();
+        while (k.rs.next()){
+            table.addRow(k.rs.getString(1),k.rs.getString(2),k.rs.getString(3),k.rs.getString(6));
+        }
+        table.print();
     }
 
 
