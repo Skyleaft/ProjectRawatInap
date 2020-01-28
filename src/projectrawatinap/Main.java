@@ -99,8 +99,8 @@ public class Main {
         reg.setDB(ip,port,user,pass);
         tr.setDB(ip,port,user,pass);
 
-        do{
-            //if(hak_akses.equals("Admin")){
+        if(hak_akses.equals("Admin")){
+            do{
                 menu.cetakMenu();
                 switch (menu.getPilihan()) {
                     case 1: //menu dokter
@@ -269,9 +269,68 @@ public class Main {
                         }
                         break;
                 }
-            //}
-            clrscr();
-        }while (menu.getPilihan()!=9);
+                clrscr();
+            }while (menu.getPilihan()!=9);
+
+        }else if(hak_akses.equals("Petugas")){  //kalo hak akses petugas
+            do{
+                menu.cetakMenuPetugas();
+                switch (menu.getPilihan()){
+                    case 1:
+                        menu.cetakMenuRegistrasi();
+                        switch (menu.getPilihan()){
+                            case 1:
+                                reg.registerPasien();
+                                break;
+                            case 2:
+                                reg.registerRawat();
+                                break;
+                        }
+                        break;
+                    case 2:
+                        pas.tampilPasien();
+                        break;
+                    case 3:
+                        mk.tampilKamar();
+                        break;
+                    case 4:
+                        md.tampilDokter();
+                        break;
+                    case 5:
+                        mp.tampilPerawat();
+                        break;
+                    case 6:
+                        tr.pembayaran();
+                        break;
+                }
+                clrscr();
+            }while (menu.getPilihan()!=7);
+
+        }else if (hak_akses.equals("Dokter")){
+            do{
+                menu.cetakMenuAksesDokter();
+                switch (menu.getPilihan()){
+                    case 1:
+                        mt.Tindak();
+                        break;
+                    case 2:
+                        pas.tampilPasien();
+                        break;
+                    case 3:
+                        mk.tampilKamar();
+                        break;
+                    case 4:
+                        md.tampilDokter();
+                        break;
+                    case 5:
+                        mp.tampilPerawat();
+                        break;
+                }
+                clrscr();
+            }while (menu.getPilihan()!=6);
+        }
+
+
 
     }
 }

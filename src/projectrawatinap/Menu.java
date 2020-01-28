@@ -43,9 +43,43 @@ public class Menu {
         System.out.println("│  9. Keluar");
         System.out.println("│                                 │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.print("Pilihan Anda (1-8)? : ");
+        System.out.print("Pilihan Anda (1-9)? : ");
         pilihan = scanner.nextInt();
     }
+
+    public void cetakMenuPetugas() throws IOException {
+        System.out.println("┌─────────────────────────────────┐");
+        System.out.println("│              Menu               │");
+        System.out.println("├─────────────────────────────────┤");
+        System.out.println("│  1. Registrasi Rawat Inap");
+        System.out.println("│  2. Lihat Data Pasien");
+        System.out.println("│  3. Lihat Data Kamar");
+        System.out.println("│  4. Lihat Data Dokter");
+        System.out.println("│  5. Lihat Data Perawat");
+        System.out.println("│  6. Pembayaran");
+        System.out.println("│  7. Keluar");
+        System.out.println("│                                 │");
+        System.out.println("└─────────────────────────────────┘");
+        System.out.print("Pilihan Anda (1-7)? : ");
+        pilihan = scanner.nextInt();
+    }
+
+    public void cetakMenuAksesDokter() throws IOException {
+        System.out.println("┌─────────────────────────────────┐");
+        System.out.println("│              Menu               │");
+        System.out.println("├─────────────────────────────────┤");
+        System.out.println("│  1. Lakukan Tindakan");
+        System.out.println("│  2. Lihat Data Pasien");
+        System.out.println("│  3. Lihat Data Kamar");
+        System.out.println("│  4. Lihat Data Dokter");
+        System.out.println("│  5. Lihat Data Perawat");
+        System.out.println("│  6. Keluar");
+        System.out.println("│                                 │");
+        System.out.println("└─────────────────────────────────┘");
+        System.out.print("Pilihan Anda (1-7)? : ");
+        pilihan = scanner.nextInt();
+    }
+
 
     public void cetakMenuDokter() throws IOException {
         System.out.println("┌─────────────────────────────────┐");
