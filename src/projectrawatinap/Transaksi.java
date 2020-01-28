@@ -32,6 +32,7 @@ public class Transaksi {
         long diff;
         int nominal,hari = 0,biaya_kamar = 0,total_biaya_kamar,total_biaya_tindakan = 0,total;
         int biaya_tindakan,kembalian;
+        CommandLineTable table = new CommandLineTable();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
 
         DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
@@ -94,6 +95,18 @@ public class Transaksi {
         System.out.println("│  6. Total Biaya Tindakan : "+kursIndonesia.format(total_biaya_tindakan));
         if(total_biaya_tindakan!=0){
             total= total_biaya_tindakan+total_biaya_kamar;
+            k.query="SELECT *FROM detail_rawat JOIN tindakan ON tindakan.`kd_tindakan`=detail_rawat.`kd_tindakan` " +
+                    "JOIN `rawat` ON rawat.`no_rawat`=detail_rawat.`no_rawat` " +
+                    "JOIN pasien ON rawat.`no_pasien`=pasien.`no_pasien` WHERE detail_rawat.`no_rawat`='"+no_rawat+"'";
+            k.ambil();
+            table.setShowVerticalLines(true);
+            table.setHeaders("No Rawat","Nama Pasien","Nama Tindakan","Biaya Tindakan");
+            while (k.rs.next()){
+                table.addRow(k.rs.getString("no_rawat"),k.rs.getString("nama_pasien"),
+                        k.rs.getString("nama_tindakan"),kursIndonesia.format(k.rs.getInt("biaya_tindakan")));
+                total_biaya_tindakan+=k.rs.getInt("biaya_tindakan");
+            }
+            table.print();
         }else{
             total=total_biaya_kamar;
         }

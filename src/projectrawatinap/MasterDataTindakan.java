@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Scanner;
 
 public class MasterDataTindakan {
@@ -183,9 +185,46 @@ public class MasterDataTindakan {
     }
 
 
+    public void lihatDetailTindakan() throws SQLException, IOException {
+        CommandLineTable table = new CommandLineTable();
+        String kd,yt = null,no_rawat;
+        int total_biaya_tindakan = 0;
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+
+        kursIndonesia.setDecimalFormatSymbols(formatRp);
+        System.out.println("┌─────────────────────────────────────┐");
+        System.out.println("│              Detai Rawat            │");
+        System.out.println("├─────────────────────────────────────┤");
+        System.out.print("│  1. Masukan No Rawat  : ");no_rawat = reader.readLine();
+
+
+        k.query="SELECT *FROM detail_rawat JOIN tindakan ON tindakan.`kd_tindakan`=detail_rawat.`kd_tindakan` " +
+                "JOIN `rawat` ON rawat.`no_rawat`=detail_rawat.`no_rawat` " +
+                "JOIN pasien ON rawat.`no_pasien`=pasien.`no_pasien` WHERE detail_rawat.`no_rawat`='"+no_rawat+"'";
+        k.ambil();
+
+        table.setShowVerticalLines(true);
+        table.setHeaders("No Rawat","Nama Pasien","Nama Tindakan","Biaya Tindakan");
+        while (k.rs.next()){
+            table.addRow(k.rs.getString("no_rawat"),k.rs.getString("nama_pasien"),
+                    k.rs.getString("nama_tindakan"),kursIndonesia.format(k.rs.getInt("biaya_tindakan")));
+            total_biaya_tindakan+=k.rs.getInt("biaya_tindakan");
+        }
+        table.print();
+        System.out.println("Total Biaya Tindakan : "+kursIndonesia.format(total_biaya_tindakan));
+        System.out.println("Tekan Enter untuk melanjutkan");
+        reader.readLine();
+
+    }
 
     public void Tindak() throws IOException, SQLException {
         String kd,yt = null,no_rawat,nama_pasien;
+        int total = 0;
         System.out.println("┌─────────────────────────────────┐");
         System.out.println("│              Tindakan           │");
         System.out.println("├─────────────────────────────────┤");

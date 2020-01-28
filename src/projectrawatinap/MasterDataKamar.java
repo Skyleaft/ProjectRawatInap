@@ -51,7 +51,7 @@ public class MasterDataKamar {
         System.out.print("│  3. Masukan Nomor Kamar : ");no_kamar = reader.readLine();
         System.out.print("│  4. Masukan Biaya Kamar : ");biaya_kamar = reader.readLine();
         System.out.print("│  5. Masukan Deskripsi Kamar : ");deskripsi = reader.readLine();
-        k.query = "insert into kamar values('"+kd+"','"+tipe_kamar+"','"+no_kamar+"','"+biaya_kamar+"','"+deskripsi+"');";
+        k.query = "insert into kamar values('"+kd+"','"+tipe_kamar+"','"+no_kamar+"','"+biaya_kamar+"','"+deskripsi+"','0');";
         k.crud();
         if(k.count>0){
             System.out.println("Data Berhasil Disimpan ");

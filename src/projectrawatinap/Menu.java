@@ -56,8 +56,9 @@ public class Menu {
         System.out.println("│  3. Lihat Data Kamar");
         System.out.println("│  4. Lihat Data Dokter");
         System.out.println("│  5. Lihat Data Perawat");
-        System.out.println("│  6. Pembayaran");
-        System.out.println("│  7. Keluar");
+        System.out.println("│  6. Lihat Detail Rawat");
+        System.out.println("│  7. Pembayaran");
+        System.out.println("│  8. Keluar");
         System.out.println("│                                 │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-7)? : ");
@@ -221,7 +222,7 @@ public class Menu {
         System.out.println("│        Menu Pembayaran          │");
         System.out.println("├─────────────────────────────────┤");
         System.out.println("│  1. Pembayaran Rawat Inap");
-        System.out.println("│  2. ");
+        System.out.println("│  2. Lihat Detail Rawat");
         System.out.println("└─────────────────────────────────┘");
         System.out.println("Pilihan Anda (1-2)?: ");
         pilihan = scanner.nextInt();

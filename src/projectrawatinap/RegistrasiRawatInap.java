@@ -64,7 +64,7 @@ public class RegistrasiRawatInap {
         else{
             System.out.println("Salah Memasukan data Jenis Kelamin");
         }
-        k.query = "insert into pasien values('"+no_pasien+"','"+nama+"','"+jenis_kelamin+"','"+tgl_lahir+"','"+no_telp+"','"+alamat+"','"+pekerjaan+"');";
+        k.query = "insert into pasien values('"+no_pasien+"','"+nama+"','"+jenis_kelamin+"','"+tgl_lahir+"','"+no_telp+"','"+alamat+"','"+pekerjaan+"','0');";
         k.crud();
         if(k.count>0){
             System.out.println("Data Berhasil Disimpan ");
@@ -120,7 +120,7 @@ public class RegistrasiRawatInap {
         System.out.print("│  5. Masukan ID Perawat yang mengurus : ");id_perawat = reader.readLine();
         System.out.print("│  6. Masukan ID Dokter : ");id_dokter = reader.readLine();
 
-        k.query = "insert into rawat values('"+no_rawat+"','"+tgl+"','"+no_pasien+"','"+kd_kamar+"','"+id_perawat+"','"+id_dokter+"',0,0,0);";
+        k.query = "insert into rawat values('"+no_rawat+"','"+tgl+"','"+no_pasien+"','"+kd_kamar+"','"+id_perawat+"','"+id_dokter+"');";
         k.crud();
         if(k.count>0){
             System.out.println("Data Berhasil Disimpan ");

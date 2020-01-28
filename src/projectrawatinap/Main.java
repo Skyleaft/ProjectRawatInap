@@ -268,6 +268,9 @@ public class Main {
                             case 1:
                                 tr.pembayaran();
                                 break;
+                            case 2:
+                                mt.lihatDetailTindakan();
+                                break;
                         }
                         break;
                 }
@@ -302,11 +305,14 @@ public class Main {
                         mp.tampilPerawat();
                         break;
                     case 6:
+                        mt.lihatDetailTindakan();
+                        break;
+                    case 7:
                         tr.pembayaran();
                         break;
                 }
                 clrscr();
-            }while (menu.getPilihan()!=7);
+            }while (menu.getPilihan()!=8);
 
         }else if (hak_akses.equals("Dokter")){
             do{
