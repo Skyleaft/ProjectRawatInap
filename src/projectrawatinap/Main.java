@@ -333,6 +333,8 @@ public class Main {
                                 break;
                         }
                         break;
+                    case 9:
+                        break;
                     default:
                         System.out.println("Pilihan anda salah");
                         System.out.println("Tekan Enter Untuk Melanjutkan");
