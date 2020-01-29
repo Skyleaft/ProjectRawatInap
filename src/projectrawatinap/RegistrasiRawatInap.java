@@ -32,15 +32,15 @@ public class RegistrasiRawatInap {
         int baris = k.rs.getRow();
         String baru;
         if(baris==0){
-            baru = "P001";
+            baru = "PS001";
         }else{
             int tambah = Integer.valueOf(k.rs.getString(1).substring(3,(k.rs.getString(1).length())))+ 1;
             if(tambah < 10){
-                baru = "P00"+ tambah;
+                baru = "PS00"+ tambah;
             }else if(tambah < 100){
-                baru = "P0"+ tambah;
+                baru = "PS0"+ tambah;
             }else{
-                baru = "P"+ tambah;
+                baru = "PS"+ tambah;
             }
         }
         no_pasien=baru;
