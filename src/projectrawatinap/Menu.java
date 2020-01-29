@@ -18,7 +18,6 @@ import java.util.Scanner;
  * @author msi
  */
 public class Menu {
-    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     Scanner scanner = new Scanner(System.in);
     Koneksi k = new Koneksi();
     public int pilihan=0;

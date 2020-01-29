@@ -30,7 +30,6 @@ public class Main {
     
     public static void main(String[] args) throws IOException, SQLException, ParseException {
         String hak_akses = null;
-        String yt=null;
         String ytserver=null;
         String ip="localhost",port="3306",user="root",pass=null;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -50,7 +49,6 @@ public class Main {
             k.setDB(ip,port,"rawat_inap",user,pass);
             k.konek();
         }
-
 
         do {
             clrscr();

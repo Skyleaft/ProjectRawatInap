@@ -16,8 +16,6 @@ import java.util.Scanner;
 public class MasterDataDokter {
     Koneksi k = new Koneksi();
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    Scanner scanner = new Scanner(System.in);
-
 
     public void setDB(String ip,String port,String user,String pass){
         k.setDB(ip,port,"rawat_inap",user,pass);
@@ -164,7 +162,7 @@ public class MasterDataDokter {
     }
 
     public void cariDokterID() throws IOException, SQLException {
-        String id,yt;
+        String id;
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                   Cari Data Dokter Berdasarkan ID                     │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
@@ -187,7 +185,7 @@ public class MasterDataDokter {
     }
 
     public void cariDokterNama() throws IOException, SQLException {
-        String nama,yt;
+        String nama;
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                   Cari Data Dokter Berdasarkan Nama                   │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
@@ -208,7 +206,7 @@ public class MasterDataDokter {
     }
 
     public void cariDokterSpesialisasi() throws IOException, SQLException {
-        String spesialisasi,yt;
+        String spesialisasi;
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
         System.out.println("│              Cari Data Dokter Berdasarkan Spesialisasi                │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
@@ -229,7 +227,6 @@ public class MasterDataDokter {
     }
 
     public void tampilDokter() throws SQLException, IOException {
-        String id,nama,alamat,spesialisasi,no_telp,jk,jenis_kelamin = null,tgl_lahir;
         CommandLineTable table = new CommandLineTable();
         table.setShowVerticalLines(true);
         table.setHeaders("ID Dokter","Nama Dokter","Alamat","Spesialisasi","No. Telp","Jenis Kelamin","Tanggal Lahir");

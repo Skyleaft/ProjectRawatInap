@@ -108,7 +108,7 @@ public class MasterDataPasien {
     }
 
     public void cariPasienID() throws IOException, SQLException {
-        String id,yt;
+        String id;
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                   Cari Data Pasien Berdasarkan ID                     │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
@@ -131,7 +131,7 @@ public class MasterDataPasien {
     }
 
     public void cariPasienNama() throws IOException, SQLException {
-        String nama,yt;
+        String nama;
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                   Cari Data Pasien Berdasarkan Nama                   │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");

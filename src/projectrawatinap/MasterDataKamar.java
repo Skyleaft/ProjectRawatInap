@@ -26,7 +26,8 @@ public class MasterDataKamar {
     }
 
     public void tambahKamar() throws IOException, SQLException {
-        String kd = null,tipe_kamar = null,no_kamar,biaya_kamar = null,deskripsi;
+        String kd = null,tipe_kamar = null,no_kamar = null,deskripsi;
+        int biaya_kamar;
         k.query ="SELECT * FROM kamar";
         k.ambil();
         k.rs.last();
@@ -51,9 +52,9 @@ public class MasterDataKamar {
         System.out.println("│  1. Kode Kamar (Otomatis): "+kd);
         System.out.print("│  2. Masukan Tipe Kamar : ");tipe_kamar = reader.readLine();
         System.out.print("│  3. Masukan Nomor Kamar : ");no_kamar = reader.readLine();
-        System.out.print("│  4. Masukan Biaya Kamar : ");biaya_kamar = reader.readLine();
+        System.out.print("│  4. Masukan Biaya Kamar : ");biaya_kamar = scanner.nextInt();
         System.out.print("│  5. Masukan Deskripsi Kamar : ");deskripsi = reader.readLine();
-        k.query = "insert into kamar values('"+kd+"','"+tipe_kamar+"','"+no_kamar+"','"+biaya_kamar+"','"+deskripsi+"','0');";
+        k.query = "insert into kamar values('"+kd+"','"+tipe_kamar+"','"+no_kamar+"',"+biaya_kamar+",'"+deskripsi+"','0');";
         k.crud();
         if(k.count>0){
             System.out.println("Data Berhasil Disimpan ");
@@ -65,7 +66,7 @@ public class MasterDataKamar {
     }
 
     public void ubahKamar() throws IOException, SQLException {
-        String kd = null,tipe_kamar = null,no_kamar,biaya_kamar = null,deskripsi;
+        String kd = null,tipe_kamar = null,no_kamar = null,deskripsi,biaya_kamar;
         System.out.println("┌─────────────────────────────────┐");
         System.out.println("│         Ubah Data Kamar         │");
         System.out.println("├─────────────────────────────────┤");
@@ -88,7 +89,7 @@ public class MasterDataKamar {
                 k.crud();
             }
             if(!biaya_kamar.equals("")){
-                k.query="update kamar set biaya_kamar='"+biaya_kamar+"' where kd_kamar='"+kd+"'";
+                k.query="update kamar set biaya_kamar="+biaya_kamar+" where kd_kamar='"+kd+"'";
                 k.crud();
             }
             if(!deskripsi.equals("")){

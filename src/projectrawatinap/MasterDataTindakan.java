@@ -117,7 +117,7 @@ public class MasterDataTindakan {
     }
 
     public void cariTindakanKd() throws IOException, SQLException {
-        String kd,yt;
+        String kd;
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                   Cari Data Tindakan Berdasarkan Kode                 │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
@@ -139,7 +139,7 @@ public class MasterDataTindakan {
     }
 
     public void cariTindakanNama() throws IOException, SQLException {
-        String nama,yt;
+        String nama;
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                   Cari Data Tindakan Berdasarkan Nama                 │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
@@ -203,7 +203,7 @@ public class MasterDataTindakan {
 
     public void lihatDetailTindakan() throws SQLException, IOException {
         CommandLineTable table = new CommandLineTable();
-        String kd,yt = null,no_rawat;
+        String no_rawat;
         int total_biaya_tindakan = 0;
         DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
         DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
@@ -240,7 +240,6 @@ public class MasterDataTindakan {
 
     public void Tindak() throws IOException, SQLException {
         String kd,yt = null,no_rawat,nama_pasien;
-        int total = 0;
         System.out.println("┌─────────────────────────────────┐");
         System.out.println("│            Tindakan             │");
         System.out.println("├─────────────────────────────────┤");

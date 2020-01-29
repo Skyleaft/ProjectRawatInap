@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.text.*;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -144,6 +143,4 @@ public class Transaksi {
         System.out.println("Tekan Enter untuk melanjutkan");
         reader.readLine();
     }
-
-
 }
