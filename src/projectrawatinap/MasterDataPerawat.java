@@ -73,7 +73,7 @@ public class MasterDataPerawat {
         System.out.println("┌────────────────────────────────────────┐");
         System.out.println("│            Ubah Data Perawat           │");
         System.out.println("├────────────────────────────────────────┤");
-        System.out.print("│  1. Masukan ID Perawat yang akan diubah : ");id = reader.readLine();
+        System.out.print("│  1. Masukan ID Perawat yang akan diubah : ");id = reader.readLine().toUpperCase();
         k.query="select * from perawat where id_perawat='"+id+"'";
         k.ambil();
         if (k.rs.next()) {
@@ -126,7 +126,7 @@ public class MasterDataPerawat {
         System.out.println("┌─────────────────────────────────┐");
         System.out.println("│        Hapus Data Perawat       │");
         System.out.println("├─────────────────────────────────┤");
-        System.out.print("│  1. Masukan ID Perawat yang akan dihapus : ");id = reader.readLine();
+        System.out.print("│  1. Masukan ID Perawat yang akan dihapus : ");id = reader.readLine().toUpperCase();
         k.query="select * from perawat where id_perawat='"+id+"'";
         k.ambil();
         if (k.rs.next()){
@@ -157,7 +157,7 @@ public class MasterDataPerawat {
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                   Cari Data Perawat Berdasarkan ID                    │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
-        System.out.print("│  1. Masukan ID Perawat yang ingin dicari : ");id = reader.readLine();
+        System.out.print("│  1. Masukan ID Perawat yang ingin dicari : ");id = reader.readLine().toUpperCase();
         System.out.println();
         CommandLineTable table = new CommandLineTable();
         table.setShowVerticalLines(true);

@@ -61,7 +61,7 @@ public class MasterDataTindakan {
         System.out.println("┌────────────────────────────────────────┐");
         System.out.println("│            Ubah Data Tindakan          │");
         System.out.println("├────────────────────────────────────────┤");
-        System.out.print("│  1. Masukan Kode Tindakan yang akan diubah : ");kd = reader.readLine();
+        System.out.print("│  1. Masukan Kode Tindakan yang akan diubah : ");kd = reader.readLine().toUpperCase();
         k.query="select * from tindakan where kd_tindakan='"+kd+"'";
         k.ambil();
         if (k.rs.next()) {
@@ -90,7 +90,7 @@ public class MasterDataTindakan {
         System.out.println("┌─────────────────────────────────┐");
         System.out.println("│        Hapus Data Tindakan      │");
         System.out.println("├─────────────────────────────────┤");
-        System.out.print("│  1. Masukan Kode Tindakan yang akan dihapus : ");kd = reader.readLine();
+        System.out.print("│  1. Masukan Kode Tindakan yang akan dihapus : ");kd = reader.readLine().toUpperCase();
         k.query="select * from tindakan where kd_tindakan='"+kd+"'";
         k.ambil();
         if (k.rs.next()){
@@ -121,7 +121,7 @@ public class MasterDataTindakan {
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                   Cari Data Tindakan Berdasarkan Kode                 │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
-        System.out.print("│  1. Masukan Kode Tindakan yang ingin dicari : ");kd = reader.readLine();
+        System.out.print("│  1. Masukan Kode Tindakan yang ingin dicari : ");kd = reader.readLine().toUpperCase();
         System.out.println();
         CommandLineTable table = new CommandLineTable();
         table.setShowVerticalLines(true);
@@ -214,7 +214,7 @@ public class MasterDataTindakan {
 
         kursIndonesia.setDecimalFormatSymbols(formatRp);
         System.out.println("┌─────────────────────────────────────┐");
-        System.out.println("│              Detai Rawat            │");
+        System.out.println("│             Detail Rawat            │");
         System.out.println("├─────────────────────────────────────┤");
         System.out.print("│  1. Masukan No Rawat  : ");no_rawat = reader.readLine();
 

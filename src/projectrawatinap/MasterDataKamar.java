@@ -69,7 +69,7 @@ public class MasterDataKamar {
         System.out.println("┌─────────────────────────────────┐");
         System.out.println("│         Ubah Data Kamar         │");
         System.out.println("├─────────────────────────────────┤");
-        System.out.print("│  1. Masukan Kode Kamar yang akan diubah : ");kd = reader.readLine();
+        System.out.print("│  1. Masukan Kode Kamar yang akan diubah : ");kd = reader.readLine().toUpperCase();
         k.query="select * from kamar where kd_kamar='"+kd+"'";
         k.ambil();
         if (k.rs.next()) {
@@ -108,7 +108,7 @@ public class MasterDataKamar {
         System.out.println("┌─────────────────────────────────┐");
         System.out.println("│         Hapus Data kamar        │");
         System.out.println("├─────────────────────────────────┤");
-        System.out.print("│  1. Masukan Kode Kamar yang akan dihapus : ");kd = reader.readLine();
+        System.out.print("│  1. Masukan Kode Kamar yang akan dihapus : ");kd = reader.readLine().toUpperCase();
         k.query="select * from kamar where kd_kamar='"+kd+"'";
         k.ambil();
         if (k.rs.next()){
@@ -137,7 +137,7 @@ public class MasterDataKamar {
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                   Cari Data Kamar Berdasarkan Kode                    │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
-        System.out.print("│  1. Masukan Kode Kamar yang ingin dicari : ");kd = reader.readLine();
+        System.out.print("│  1. Masukan Kode Kamar yang ingin dicari : ");kd = reader.readLine().toUpperCase();
         System.out.println();
         CommandLineTable table = new CommandLineTable();
         table.setShowVerticalLines(true);
