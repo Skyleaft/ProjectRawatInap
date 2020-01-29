@@ -140,7 +140,7 @@ public class Menu {
         System.out.println("├─────────────────────────────────┤");
         System.out.println("│  1. Hapus Data                  │");
         System.out.println("│  2. Ubah Data                   │");
-        System.out.println("│  3. cari Data                   │");
+        System.out.println("│  3. Cari Data                   │");
         System.out.println("│  4. Tampil Data                 │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-4)?: ");
@@ -165,7 +165,7 @@ public class Menu {
         System.out.println("│  1. Tambah Data                 │");
         System.out.println("│  2. Hapus Data                  │");
         System.out.println("│  3. Ubah Data                   │");
-        System.out.println("│  4. cari Data                   │");
+        System.out.println("│  4. Cari Data                   │");
         System.out.println("│  5. Tampilkan Data              │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-5)?: ");
@@ -189,7 +189,7 @@ public class Menu {
         System.out.println("│  1. Tambah Data                 │");
         System.out.println("│  2. Hapus Data                  │");
         System.out.println("│  3. Ubah Data                   │");
-        System.out.println("│  4. cari Data                   │");
+        System.out.println("│  4. Cari Data                   │");
         System.out.println("│  5. Tampilkan Data              │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-5)?: ");

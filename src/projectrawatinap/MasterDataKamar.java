@@ -46,7 +46,7 @@ public class MasterDataKamar {
         }
         kd=baru;
         System.out.println("┌────────────────────────────────────┐");
-        System.out.println("│        Tambah Data Kamar          │");
+        System.out.println("│          Tambah Data Kamar         │");
         System.out.println("├────────────────────────────────────┤");
         System.out.println("│  1. Kode Kamar (Otomatis): "+kd);
         System.out.print("│  2. Masukan Tipe Kamar : ");tipe_kamar = reader.readLine();
@@ -67,7 +67,7 @@ public class MasterDataKamar {
     public void ubahKamar() throws IOException, SQLException {
         String kd = null,tipe_kamar = null,no_kamar,biaya_kamar = null,deskripsi;
         System.out.println("┌─────────────────────────────────┐");
-        System.out.println("│        Ubah Data Kamar         │");
+        System.out.println("│         Ubah Data Kamar         │");
         System.out.println("├─────────────────────────────────┤");
         System.out.print("│  1. Masukan Kode Kamar yang akan diubah : ");kd = reader.readLine();
         k.query="select * from kamar where kd_kamar='"+kd+"'";
@@ -106,7 +106,7 @@ public class MasterDataKamar {
     public void hapusKamar() throws IOException, SQLException {
         String kd,yt;
         System.out.println("┌─────────────────────────────────┐");
-        System.out.println("│        Hapus Data kamar        │");
+        System.out.println("│         Hapus Data kamar        │");
         System.out.println("├─────────────────────────────────┤");
         System.out.print("│  1. Masukan Kode Kamar yang akan dihapus : ");kd = reader.readLine();
         k.query="select * from kamar where kd_kamar='"+kd+"'";
@@ -135,7 +135,7 @@ public class MasterDataKamar {
     public void cariKamarKd() throws IOException, SQLException {
         String kd,yt;
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│                   Cari Data Kamar Berdasarkan Kode                     │");
+        System.out.println("│                   Cari Data Kamar Berdasarkan Kode                    │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
         System.out.print("│  1. Masukan Kode Kamar yang ingin dicari : ");kd = reader.readLine();
         System.out.println();
@@ -158,7 +158,7 @@ public class MasterDataKamar {
     public void cariKamarTipe() throws IOException, SQLException {
         String tipe_kamar,yt;
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│                   Cari Data Kamar Berdasarkan Tipe                   │");
+        System.out.println("│                    Cari Data Kamar Berdasarkan Tipe                   │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
         System.out.print("│  1. Masukan Tipe Kamar yang ingin dicari : ");tipe_kamar = reader.readLine();
         System.out.println();

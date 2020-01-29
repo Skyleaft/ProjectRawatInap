@@ -88,7 +88,7 @@ public class MasterDataTindakan {
     public void hapusTindakan() throws IOException, SQLException {
         String kd,yt;
         System.out.println("┌─────────────────────────────────┐");
-        System.out.println("│        Hapus Data Tindakan       │");
+        System.out.println("│        Hapus Data Tindakan      │");
         System.out.println("├─────────────────────────────────┤");
         System.out.print("│  1. Masukan Kode Tindakan yang akan dihapus : ");kd = reader.readLine();
         k.query="select * from tindakan where kd_tindakan='"+kd+"'";
@@ -119,7 +119,7 @@ public class MasterDataTindakan {
     public void cariTindakanKd() throws IOException, SQLException {
         String kd,yt;
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│                   Cari Data Tindakan Berdasarkan Kode                    │");
+        System.out.println("│                   Cari Data Tindakan Berdasarkan Kode                 │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
         System.out.print("│  1. Masukan Kode Tindakan yang ingin dicari : ");kd = reader.readLine();
         System.out.println();
@@ -141,7 +141,7 @@ public class MasterDataTindakan {
     public void cariTindakanNama() throws IOException, SQLException {
         String nama,yt;
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│                   Cari Data Tindakan Berdasarkan Nama                   │");
+        System.out.println("│                   Cari Data Tindakan Berdasarkan Nama                 │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
         System.out.print("│  1. Masukan Nama Tindakan yang ingin dicari : ");nama = reader.readLine();
         System.out.println();
@@ -242,7 +242,7 @@ public class MasterDataTindakan {
         String kd,yt = null,no_rawat,nama_pasien;
         int total = 0;
         System.out.println("┌─────────────────────────────────┐");
-        System.out.println("│              Tindakan           │");
+        System.out.println("│            Tindakan             │");
         System.out.println("├─────────────────────────────────┤");
         System.out.print("│  1. Masukan No Rawat yang akan di tindak : ");no_rawat = reader.readLine();
         k.query="SELECT *FROM rawat JOIN pasien ON rawat.`no_pasien`=pasien.`no_pasien`  WHERE rawat.no_rawat='"+no_rawat+"'";

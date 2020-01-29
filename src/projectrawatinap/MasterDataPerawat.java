@@ -124,7 +124,7 @@ public class MasterDataPerawat {
     public void hapusPerawat() throws IOException, SQLException {
         String id,yt;
         System.out.println("┌─────────────────────────────────┐");
-        System.out.println("│        Hapus Data Perawat        │");
+        System.out.println("│        Hapus Data Perawat       │");
         System.out.println("├─────────────────────────────────┤");
         System.out.print("│  1. Masukan ID Perawat yang akan dihapus : ");id = reader.readLine();
         k.query="select * from perawat where id_perawat='"+id+"'";
@@ -178,7 +178,7 @@ public class MasterDataPerawat {
     public void cariPerawatNama() throws IOException, SQLException {
         String nama,yt;
         System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│                   Cari Data Perawat Berdasarkan Nama                   │");
+        System.out.println("│                   Cari Data Perawat Berdasarkan Nama                  │");
         System.out.println("├───────────────────────────────────────────────────────────────────────┤");
         System.out.print("│  1. Masukan Nama Perawat yang ingin dicari : ");nama = reader.readLine();
         System.out.println();
