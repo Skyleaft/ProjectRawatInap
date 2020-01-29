@@ -129,10 +129,20 @@ public class Main {
                                     case 3:
                                         md.cariDokterSpesialisasi();
                                         break;
+                                    default:
+                                        System.out.println("Pilihan anda salah");
+                                        System.out.println("Tekan Enter Untuk Melanjutkan");
+                                        reader.readLine();
+                                        break;
                                 }
                                 break;
                             case 5:
                                 md.tampilDokter();
+                                break;
+                            default:
+                                System.out.println("Pilihan anda salah");
+                                System.out.println("Tekan Enter Untuk Melanjutkan");
+                                reader.readLine();
                                 break;
                         }
                         break;
@@ -160,10 +170,20 @@ public class Main {
                                     case 3:
                                         mp.cariPerawatAlamat();
                                         break;
+                                    default:
+                                        System.out.println("Pilihan anda salah");
+                                        System.out.println("Tekan Enter Untuk Melanjutkan");
+                                        reader.readLine();
+                                        break;
                                 }
                                 break;
                             case 5:
                                 mp.tampilPerawat();
+                                break;
+                            default:
+                                System.out.println("Pilihan anda salah");
+                                System.out.println("Tekan Enter Untuk Melanjutkan");
+                                reader.readLine();
                                 break;
                         }
                         break;
@@ -185,10 +205,20 @@ public class Main {
                                     case 2:
                                         pas.cariPasienNama();
                                         break;
+                                    default:
+                                        System.out.println("Pilihan anda salah");
+                                        System.out.println("Tekan Enter Untuk Melanjutkan");
+                                        reader.readLine();
+                                        break;
                                 }
                                 break;
                             case 4:
                                 pas.tampilPasien();
+                                break;
+                            default:
+                                System.out.println("Pilihan anda salah");
+                                System.out.println("Tekan Enter Untuk Melanjutkan");
+                                reader.readLine();
                                 break;
                         }
                         break;
@@ -213,10 +243,20 @@ public class Main {
                                     case 2:
                                         mk.cariKamarTipe();
                                         break;
+                                    default:
+                                        System.out.println("Pilihan anda salah");
+                                        System.out.println("Tekan Enter Untuk Melanjutkan");
+                                        reader.readLine();
+                                        break;
                                 }
                                 break;
                             case 5:
                                 mk.tampilKamar();
+                                break;
+                            default:
+                                System.out.println("Pilihan anda salah");
+                                System.out.println("Tekan Enter Untuk Melanjutkan");
+                                reader.readLine();
                                 break;
                         }
                         break;
@@ -241,10 +281,20 @@ public class Main {
                                     case 2:
                                         mt.cariTindakanNama();
                                         break;
+                                    default:
+                                        System.out.println("Pilihan anda salah");
+                                        System.out.println("Tekan Enter Untuk Melanjutkan");
+                                        reader.readLine();
+                                        break;
                                 }
                                 break;
                             case 5:
                                 mt.tampilTindakan();
+                                break;
+                            default:
+                                System.out.println("Pilihan anda salah");
+                                System.out.println("Tekan Enter Untuk Melanjutkan");
+                                reader.readLine();
                                 break;
                         }
                         break;
@@ -256,6 +306,11 @@ public class Main {
                                 break;
                             case 2:
                                 reg.registerRawat();
+                                break;
+                            default:
+                                System.out.println("Pilihan anda salah");
+                                System.out.println("Tekan Enter Untuk Melanjutkan");
+                                reader.readLine();
                                 break;
                         }
                         break;
@@ -271,7 +326,17 @@ public class Main {
                             case 2:
                                 mt.lihatDetailTindakan();
                                 break;
+                            default:
+                                System.out.println("Pilihan anda salah");
+                                System.out.println("Tekan Enter Untuk Melanjutkan");
+                                reader.readLine();
+                                break;
                         }
+                        break;
+                    default:
+                        System.out.println("Pilihan anda salah");
+                        System.out.println("Tekan Enter Untuk Melanjutkan");
+                        reader.readLine();
                         break;
                 }
                 clrscr();
@@ -289,6 +354,11 @@ public class Main {
                                 break;
                             case 2:
                                 reg.registerRawat();
+                                break;
+                            default:
+                                System.out.println("Pilihan anda salah");
+                                System.out.println("Tekan Enter Untuk Melanjutkan");
+                                reader.readLine();
                                 break;
                         }
                         break;
@@ -309,6 +379,11 @@ public class Main {
                         break;
                     case 7:
                         tr.pembayaran();
+                        break;
+                    default:
+                        System.out.println("Pilihan anda salah");
+                        System.out.println("Tekan Enter Untuk Melanjutkan");
+                        reader.readLine();
                         break;
                 }
                 clrscr();
@@ -332,6 +407,11 @@ public class Main {
                         break;
                     case 5:
                         mp.tampilPerawat();
+                        break;
+                    default:
+                        System.out.println("Pilihan anda salah");
+                        System.out.println("Tekan Enter Untuk Melanjutkan");
+                        reader.readLine();
                         break;
                 }
                 clrscr();
