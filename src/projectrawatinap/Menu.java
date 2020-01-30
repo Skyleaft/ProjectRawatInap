@@ -21,10 +21,10 @@ public class Menu {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     Scanner scanner = new Scanner(System.in);
     Koneksi k = new Koneksi();
-    public int pilihan=0;
+    public String pilihan="";
 
 
-    public int getPilihan(){
+    public String getPilihan(){
         return pilihan;
     }
 
@@ -44,7 +44,7 @@ public class Menu {
         System.out.println("│                                 │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-9)? : ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
 
     public void cetakMenuPetugas() throws IOException {
@@ -62,7 +62,7 @@ public class Menu {
         System.out.println("│                                 │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-8)? : ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
 
     public void cetakMenuAksesDokter() throws IOException {
@@ -78,7 +78,7 @@ public class Menu {
         System.out.println("│                                 │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-6)? : ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
 
 
@@ -93,7 +93,7 @@ public class Menu {
         System.out.println("│  5. Tampilkan Data              │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-5)?: ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
 
     public void cariDokterBerdasarkan() throws IOException {
@@ -105,7 +105,7 @@ public class Menu {
         System.out.println("│  3. Spesialisasi                    │");
         System.out.println("└─────────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-3)?: ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
 
     public void cetakMenuPerawat() throws IOException {
@@ -119,7 +119,7 @@ public class Menu {
         System.out.println("│  5. Tampilkan Data              │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-5)?: ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
 
     public void cariPerawatBerdasarkan() throws IOException {
@@ -131,7 +131,7 @@ public class Menu {
         System.out.println("│  3. Alamat                            │");
         System.out.println("└───────────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-3)?: ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
 
     public void cetakMenuPasien() throws IOException {
@@ -144,7 +144,7 @@ public class Menu {
         System.out.println("│  4. Tampil Data                 │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-4)?: ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
 
     public void cariPasienBerdasarkan() throws IOException {
@@ -155,7 +155,7 @@ public class Menu {
         System.out.println("│  2. Nama Pasien                     │");
         System.out.println("└─────────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-2)?: ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
 
     public void cetakMenuKamar() throws IOException {
@@ -169,7 +169,7 @@ public class Menu {
         System.out.println("│  5. Tampilkan Data              │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-5)?: ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
     public void cariKamarBerdasarkan() throws IOException {
         System.out.println("┌───────────────────────────────────────┐");
@@ -179,7 +179,7 @@ public class Menu {
         System.out.println("│  2. Tipe Kamar                        │");
         System.out.println("└───────────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-2)?: ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
     
     public void cetakMenuTindakan() throws IOException {
@@ -193,7 +193,7 @@ public class Menu {
         System.out.println("│  5. Tampilkan Data              │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-5)?: ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }    
     public void cariTindakanBerdasarkan() throws IOException {
         System.out.println("┌───────────────────────────────────────┐");
@@ -203,7 +203,7 @@ public class Menu {
         System.out.println("│  2. Nama Tindakan                     │");
         System.out.println("└───────────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-2)?: ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
 
     public void cetakMenuRegistrasi() throws IOException {
@@ -214,7 +214,7 @@ public class Menu {
         System.out.println("│  2. Registrasi Rawat            │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-2)?: ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
 
     public void cetakMenuTransaksi() throws IOException {
@@ -225,6 +225,6 @@ public class Menu {
         System.out.println("│  2. Lihat Detail Rawat          │");
         System.out.println("└─────────────────────────────────┘");
         System.out.print("Pilihan Anda (1-2)?: ");
-        pilihan = scanner.nextInt();
+        pilihan = scanner.next();
     }
 }

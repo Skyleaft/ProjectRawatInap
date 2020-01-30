@@ -105,28 +105,28 @@ public class Main {
             do{
                 menu.cetakMenu();
                 switch (menu.getPilihan()) {
-                    case 1: //menu dokter
+                    case "1": //menu dokter
                         menu.cetakMenuDokter();
                         switch (menu.getPilihan()) {
-                            case 1:
+                            case "1":
                                 md.tambahDokter();
                                 break;
-                            case 2:
+                            case "2":
                                 md.hapusDokter();
                                 break;
-                            case 3:
+                            case "3":
                                 md.ubahDokter();
                                 break;
-                            case 4:
+                            case "4":
                                 menu.cariDokterBerdasarkan();
                                 switch (menu.getPilihan()){
-                                    case 1:
+                                    case "1":
                                         md.cariDokterID();
                                         break;
-                                    case 2:
+                                    case "2":
                                         md.cariDokterNama();
                                         break;
-                                    case 3:
+                                    case "3":
                                         md.cariDokterSpesialisasi();
                                         break;
                                     default:
@@ -136,7 +136,7 @@ public class Main {
                                         break;
                                 }
                                 break;
-                            case 5:
+                            case "5":
                                 md.tampilDokter();
                                 break;
                             default:
@@ -146,28 +146,28 @@ public class Main {
                                 break;
                         }
                         break;
-                    case 2: //menu perawat
+                    case "2": //menu perawat
                         menu.cetakMenuPerawat();
                         switch (menu.getPilihan()) {
-                            case 1:
+                            case "1":
                                 mp.tambahPerawat();
                                 break;
-                            case 2:
+                            case "2":
                                 mp.hapusPerawat();
                                 break;
-                            case 3:
+                            case "3":
                                 mp.ubahPerawat();
                                 break;
-                            case 4:
+                            case "4":
                                 menu.cariPerawatBerdasarkan();
                                 switch (menu.getPilihan()){
-                                    case 1:
+                                    case "1":
                                         mp.cariPerawatID();
                                         break;
-                                    case 2:
+                                    case "2":
                                         mp.cariPerawatNama();
                                         break;
-                                    case 3:
+                                    case "3":
                                         mp.cariPerawatAlamat();
                                         break;
                                     default:
@@ -177,7 +177,7 @@ public class Main {
                                         break;
                                 }
                                 break;
-                            case 5:
+                            case "5":
                                 mp.tampilPerawat();
                                 break;
                             default:
@@ -187,22 +187,22 @@ public class Main {
                                 break;
                         }
                         break;
-                    case 3: //menu pasien
+                    case "3": //menu pasien
                         menu.cetakMenuPasien();
                         switch (menu.getPilihan()){
-                            case 1:
+                            case "1":
                                 pas.hapusPasien();
                                 break;
-                            case 2:
+                            case "2":
                                 pas.ubahPasien();
                                 break;
-                            case 3:
+                            case "3":
                                 menu.cariPasienBerdasarkan();
                                 switch (menu.getPilihan()){
-                                    case 1:
+                                    case "1":
                                         pas.cariPasienID();
                                         break;
-                                    case 2:
+                                    case "2":
                                         pas.cariPasienNama();
                                         break;
                                     default:
@@ -212,7 +212,7 @@ public class Main {
                                         break;
                                 }
                                 break;
-                            case 4:
+                            case "4":
                                 pas.tampilPasien();
                                 break;
                             default:
@@ -222,25 +222,25 @@ public class Main {
                                 break;
                         }
                         break;
-                    case 4: //menu kamar
+                    case "4": //menu kamar
                         menu.cetakMenuKamar();
                         switch(menu.getPilihan()){
-                            case 1:
+                            case "1":
                                 mk.tambahKamar();
                                 break;
-                            case 2:
+                            case "2":
                                 mk.hapusKamar();
                                 break;
-                            case 3:
+                            case "3":
                                 mk.ubahKamar();
                                 break;
-                            case 4:
+                            case "4":
                                 menu.cariKamarBerdasarkan();
                                 switch(menu.getPilihan()){
-                                    case 1:
+                                    case "1":
                                         mk.cariKamarKd();
                                         break;
-                                    case 2:
+                                    case "2":
                                         mk.cariKamarTipe();
                                         break;
                                     default:
@@ -250,7 +250,7 @@ public class Main {
                                         break;
                                 }
                                 break;
-                            case 5:
+                            case "5":
                                 mk.tampilKamar();
                                 break;
                             default:
@@ -260,25 +260,25 @@ public class Main {
                                 break;
                         }
                         break;
-                    case 5: //menu tindakan
+                    case "5": //menu tindakan
                         menu.cetakMenuTindakan();
                         switch (menu.getPilihan()){
-                            case 1:
+                            case "1":
                                 mt.tambahTindakan();
                                 break;
-                            case 2:
+                            case "2":
                                 mt.hapusTindakan();
                                 break;
-                            case 3:
+                            case "3":
                                 mt.ubahTindakan();
                                 break;
-                            case 4:
+                            case "4":
                                 menu.cariTindakanBerdasarkan();
                                 switch (menu.getPilihan()){
-                                    case 1:
+                                    case "1":
                                         mt.cariTindakanKd();
                                         break;
-                                    case 2:
+                                    case "2":
                                         mt.cariTindakanNama();
                                         break;
                                     default:
@@ -288,7 +288,7 @@ public class Main {
                                         break;
                                 }
                                 break;
-                            case 5:
+                            case "5":
                                 mt.tampilTindakan();
                                 break;
                             default:
@@ -298,13 +298,13 @@ public class Main {
                                 break;
                         }
                         break;
-                    case 6: //menu registrasi
+                    case "6": //menu registrasi
                         menu.cetakMenuRegistrasi();
                         switch (menu.getPilihan()){
-                            case 1:
+                            case "1":
                                 reg.registerPasien();
                                 break;
-                            case 2:
+                            case "2":
                                 reg.registerRawat();
                                 break;
                             default:
@@ -314,16 +314,16 @@ public class Main {
                                 break;
                         }
                         break;
-                    case 7:
+                    case "7":
                         mt.Tindak();
                         break;
-                    case 8:
+                    case "8":
                         menu.cetakMenuTransaksi();
                         switch (menu.getPilihan()){
-                            case 1:
+                            case "1":
                                 tr.pembayaran();
                                 break;
-                            case 2:
+                            case "2":
                                 mt.lihatDetailTindakan();
                                 break;
                             default:
@@ -333,7 +333,7 @@ public class Main {
                                 break;
                         }
                         break;
-                    case 9:
+                    case "9":
                         break;
                     default:
                         System.out.println("Pilihan anda salah");
@@ -342,19 +342,19 @@ public class Main {
                         break;
                 }
                 clrscr();
-            }while (menu.getPilihan()!=9);
+            }while (menu.getPilihan()!="9");
 
         }else if(hak_akses.equals("Petugas")){  //kalo hak akses petugas
             do{
                 menu.cetakMenuPetugas();
                 switch (menu.getPilihan()){
-                    case 1:
+                    case "1":
                         menu.cetakMenuRegistrasi();
                         switch (menu.getPilihan()){
-                            case 1:
+                            case "1":
                                 reg.registerPasien();
                                 break;
-                            case 2:
+                            case "2":
                                 reg.registerRawat();
                                 break;
                             default:
@@ -364,22 +364,22 @@ public class Main {
                                 break;
                         }
                         break;
-                    case 2:
+                    case "2":
                         pas.tampilPasien();
                         break;
-                    case 3:
+                    case "3":
                         mk.tampilKamar();
                         break;
-                    case 4:
+                    case "4":
                         md.tampilDokter();
                         break;
-                    case 5:
+                    case "5":
                         mp.tampilPerawat();
                         break;
-                    case 6:
+                    case "6":
                         mt.lihatDetailTindakan();
                         break;
-                    case 7:
+                    case "7":
                         tr.pembayaran();
                         break;
                     default:
@@ -389,25 +389,25 @@ public class Main {
                         break;
                 }
                 clrscr();
-            }while (menu.getPilihan()!=8);
+            }while (menu.getPilihan()!="8");
 
         }else if (hak_akses.equals("Dokter")){
             do{
                 menu.cetakMenuAksesDokter();
                 switch (menu.getPilihan()){
-                    case 1:
+                    case "1":
                         mt.Tindak();
                         break;
-                    case 2:
+                    case "2":
                         pas.tampilPasien();
                         break;
-                    case 3:
+                    case "3":
                         mk.tampilKamar();
                         break;
-                    case 4:
+                    case "4":
                         md.tampilDokter();
                         break;
-                    case 5:
+                    case "5":
                         mp.tampilPerawat();
                         break;
                     default:
@@ -417,7 +417,7 @@ public class Main {
                         break;
                 }
                 clrscr();
-            }while (menu.getPilihan()!=6);
+            }while (menu.getPilihan()!="6");
         }
 
 
