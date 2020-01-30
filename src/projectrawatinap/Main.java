@@ -305,6 +305,12 @@ public class Main {
                             case "2":
                                 reg.registerRawat();
                                 break;
+                            case "3":
+                                reg.lihatDataRawat();
+                                break;
+                            case "4":
+                                reg.cariDataRawat();
+                                break;
                             default:
                                 System.out.println("Pilihan anda salah");
                                 System.out.println("Tekan Enter Untuk Melanjutkan");
@@ -355,6 +361,12 @@ public class Main {
                             case "2":
                                 reg.registerRawat();
                                 break;
+                            case "3":
+                                reg.lihatDataRawat();
+                                break;
+                            case "4":
+                                reg.cariDataRawat();
+                                break;
                             default:
                                 System.out.println("Pilihan anda salah");
                                 System.out.println("Tekan Enter Untuk Melanjutkan");
@@ -380,12 +392,12 @@ public class Main {
                     case "7":
                         tr.pembayaran();
                         break;
+                    case "8":
+                        break;
                     default:
                         System.out.println("Pilihan anda salah");
                         System.out.println("Tekan Enter Untuk Melanjutkan");
                         reader.readLine();
-                        break;
-                    case "8":
                         break;
                 }
                 clrscr();
@@ -410,16 +422,19 @@ public class Main {
                     case "5":
                         mp.tampilPerawat();
                         break;
+                    case "6":
+                        reg.lihatDataRawat();
+                        break;
                     default:
                         System.out.println("Pilihan anda salah");
                         System.out.println("Tekan Enter Untuk Melanjutkan");
                         reader.readLine();
                         break;
-                    case "6":
+                    case "7":
                         break;
                 }
                 clrscr();
-            }while (!menu.getPilihan().equals("6"));
+            }while (!menu.getPilihan().equals("7"));
         }
 
 

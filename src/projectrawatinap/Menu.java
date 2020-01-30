@@ -55,7 +55,7 @@ public class Menu {
         System.out.println("│  3. Lihat Data Kamar            │");
         System.out.println("│  4. Lihat Data Dokter           │");
         System.out.println("│  5. Lihat Data Perawat          │");
-        System.out.println("│  6. Lihat Detail Rawat          │");
+        System.out.println("│  6. Lihat Detail Biaya Rawat    │");
         System.out.println("│  7. Pembayaran                  │");
         System.out.println("│  8. Keluar                      │");
         System.out.println("│                                 │");
@@ -73,10 +73,11 @@ public class Menu {
         System.out.println("│  3. Lihat Data Kamar            │");
         System.out.println("│  4. Lihat Data Dokter           │");
         System.out.println("│  5. Lihat Data Perawat          │");
-        System.out.println("│  6. Keluar                      │");
+        System.out.println("│  6. Lihat Data Rawat            │");
+        System.out.println("│  7. Keluar                      │");
         System.out.println("│                                 │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.print("Pilihan Anda (1-6)? : ");
+        System.out.print("Pilihan Anda (1-7)? : ");
         pilihan = scanner.next();
     }
 
@@ -207,12 +208,14 @@ public class Menu {
 
     public void cetakMenuRegistrasi() throws IOException {
         System.out.println("┌─────────────────────────────────┐");
-        System.out.println("│        Menu Registrasi          │");
+        System.out.println("│        Menu Rawat Inap          │");
         System.out.println("├─────────────────────────────────┤");
         System.out.println("│  1. Registrasi Pasien           │");
         System.out.println("│  2. Registrasi Rawat            │");
+        System.out.println("│  3. Lihat Data Rawat            │");
+        System.out.println("│  4. Cari Data Rawat             │");
         System.out.println("└─────────────────────────────────┘");
-        System.out.print("Pilihan Anda (1-2)?: ");
+        System.out.print("Pilihan Anda (1-4)?: ");
         pilihan = scanner.next();
     }
 

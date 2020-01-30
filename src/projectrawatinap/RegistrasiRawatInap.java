@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Scanner;
 
 public class RegistrasiRawatInap {
@@ -137,4 +139,42 @@ public class RegistrasiRawatInap {
         reader.readLine();
 
     }
+
+    public void lihatDataRawat() throws SQLException, IOException {
+        CommandLineTable table = new CommandLineTable();
+        table.setShowVerticalLines(true);
+        table.setHeaders("No Rawat","Nama","Alamat","Tipe Kamar","Nomor Kamar");
+        k.query="SELECT *FROM rawat JOIN pasien ON rawat.`no_pasien` = pasien.`no_pasien` JOIN kamar ON rawat.`kd_kamar`=kamar.`kd_kamar`";
+        k.ambil();
+        while (k.rs.next()){
+            table.addRow(k.rs.getString("no_rawat"),k.rs.getString("nama_pasien"),k.rs.getString("alamat"),
+                    k.rs.getString("tipe_kamar"),k.rs.getString("no_kamar"));
+
+        }
+        table.print();
+        System.out.println("Tekan Enter untuk melanjutkan");
+        reader.readLine();
+    }
+
+    public void cariDataRawat() throws SQLException, IOException {
+        String cari;
+        CommandLineTable table = new CommandLineTable();
+
+        System.out.print("  Masukan No Rawat : ");cari=reader.readLine();
+
+        table.setShowVerticalLines(true);
+        table.setHeaders("No Rawat","Nama","Alamat","Tipe Kamar","Nomor Kamar");
+        k.query="SELECT *FROM rawat JOIN pasien ON rawat.`no_pasien` = pasien.`no_pasien` JOIN kamar ON rawat.`kd_kamar`=kamar.`kd_kamar` where rawat.no_rawat='"+cari+"'";
+        k.ambil();
+        if (k.rs.next()){
+            table.addRow(k.rs.getString("no_rawat"),k.rs.getString("nama_pasien"),k.rs.getString("alamat"),
+                    k.rs.getString("tipe_kamar"),k.rs.getString("no_kamar"));
+            table.print();
+        }else{
+            System.out.println("  Data Tidak Ditemukan!");
+        }
+        System.out.println("Tekan Enter untuk melanjutkan");
+        reader.readLine();
+    }
+
 }
