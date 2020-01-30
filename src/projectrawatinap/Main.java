@@ -340,7 +340,7 @@ public class Main {
                         break;
                 }
                 clrscr();
-            }while (menu.getPilihan()!="9");
+            }while (!menu.getPilihan().equals("9"));
 
         }else if(hak_akses.equals("Petugas")){  //kalo hak akses petugas
             do{
@@ -385,9 +385,11 @@ public class Main {
                         System.out.println("Tekan Enter Untuk Melanjutkan");
                         reader.readLine();
                         break;
+                    case "8":
+                        break;
                 }
                 clrscr();
-            }while (menu.getPilihan()!="8");
+            }while (!menu.getPilihan().equals("8"));
 
         }else if (hak_akses.equals("Dokter")){
             do{
@@ -413,9 +415,11 @@ public class Main {
                         System.out.println("Tekan Enter Untuk Melanjutkan");
                         reader.readLine();
                         break;
+                    case "6":
+                        break;
                 }
                 clrscr();
-            }while (menu.getPilihan()!="6");
+            }while (!menu.getPilihan().equals("6"));
         }
 
 
