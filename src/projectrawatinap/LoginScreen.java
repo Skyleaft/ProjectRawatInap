@@ -20,8 +20,6 @@ public class LoginScreen {
     private String uname,pass;
 
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    Console console = System.console();
-    Koneksi k = new Koneksi();
 
     public  String getUname(){
         return uname;
